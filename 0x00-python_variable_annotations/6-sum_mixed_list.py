@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-module to sum a mixed list
+module with func to sum a mixed list
 """
 from typing import List, Union
 
