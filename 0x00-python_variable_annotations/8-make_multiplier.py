@@ -13,7 +13,6 @@ def make_multiplier(multiplier: float) -> Callable[[float], float]:
     function that maultilies float by multiplier
     """
 
-
     def multiplier_func(x: float) -> float:
         """
         performs multiplication
