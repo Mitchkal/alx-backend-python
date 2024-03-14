@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-modulethat sums a list of floats, annotated
+module that sums a list of floats, annotated
 """
 from typing import List
 
