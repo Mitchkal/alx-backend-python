@@ -5,10 +5,10 @@ contains a coroutine async generator
 """
 from random import uniform
 import asyncio
-from typing import AsyncIterator
+from typing import Generator
 
 
-async def async_generator() -> AsyncIterator[float]:
+async def async_generator() -> Generator[float, None, None]:
     """
     loops 110 times and in each
     async waits 1 second, then yields
@@ -16,4 +16,4 @@ async def async_generator() -> AsyncIterator[float]:
     """
     for _ in range(10):
         await asyncio.sleep(1)
-        yield (uniform(0, 10))
+        yield uniform(0, 10)
