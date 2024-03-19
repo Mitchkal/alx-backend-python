@@ -15,5 +15,5 @@ async def async_generator() -> AsyncIterator[float]:
     random number btn 0 and 10
     """
     for _ in range(10):
-        yield (uniform(0, 10))
         await asyncio.sleep(1)
+        yield (uniform(0, 10))
