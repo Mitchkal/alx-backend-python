@@ -15,5 +15,6 @@ async def measure_runtime() -> float:
     routine
     """
     start = time.time()
-    await async_comprehension()
+    tasks = [async_comprehension() for _ in range(4)]
+    await asyncio.gather(*tasks)
     return (time.time() - start)
