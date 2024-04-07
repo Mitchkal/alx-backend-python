@@ -4,6 +4,7 @@ Tests the utils model
 """
 
 import unittest
+from unittest.mock import patch, Mock
 from parameterized import parameterized
 from utils import *
 from typing import Mapping, Sequence, Any
@@ -33,6 +34,36 @@ class TestAccessNestedMap(unittest.TestCase):
         tests if access _nested_map functon raises key error on missing key
         """
         self.assertRaises(KeyError, access_nested_map, nested_map, path)
+
+
+class TestGetJson(unittest.TestCase):
+    """
+    Testcase for the getjson function
+    """
+
+    @parameterized.expand([
+        ["http://example.com", {"payload": True}],
+        ["http://holberton.io", {"payload": False}]
+        ])
+    @patch('utils.requests.get')
+    def test_get_json(self, test_url: str, test_payload: dict,
+                      mock_get: Mock):
+        """
+        tests for the test payload return
+        """
+        # set up mock response
+        mock_response = Mock()
+        mock_response.json.return_value = test_payload
+        mock_get.return_value = mock_response
+
+        # Call the get_json function
+        result = get_json(test_url)
+
+        # assert that the mocked get method was called once with the test_url
+        mock_get.assert_called_once_with(test_url)
+
+        # assert output is equal to test payload
+        self.assertEqual(result, test_payload)
 
 
 if __name__ == '__main__':
