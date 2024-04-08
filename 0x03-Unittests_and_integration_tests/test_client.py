@@ -34,20 +34,20 @@ class TestGithubOrgClient(unittest.TestCase):
 
         self.assertEqual(result, {"name": name})
 
-    def test_public_repos(self):
+    def test_public_repos(self) -> None:
         """
-        tests that list of repos is as expected from
-        payload
+        tests that list of repos is
+        as expected from payload
         """
         mock_payload = {"repos_url":
                         "https://api.github.com/orgs/example/repos"}
 
         with patch.object(GithubOrgClient, 'org',
                           new=PropertyMock(return_value=mock_payload)):
-            client = GithubOrgClient("example")
+            client: GithubOrgClient = GithubOrgClient("example")
 
-            result = client._public_repos_url
-            expected_url = mock_payload["repos_url"]
+            result: str = client._public_repos_url
+            expected_url: str = mock_payload["repos_url"]
 
             self.assertEqual(result, expected_url)
 
