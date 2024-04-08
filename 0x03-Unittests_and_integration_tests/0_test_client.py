@@ -56,22 +56,23 @@ class TestGithubOrgClient(unittest.TestCase):
         """
         tests list of repos is expected from payload
         """
-        payload = [{"name": "repo1"}, {"name": "repo2"}]
-        mock_get_json.return_value = payload
-        expected_url = "https://api.github.com/orgs/repos"
+        client = GithubOrgClient("example")
 
-        with patch.object(GithubOrgClient, '_public_repos_url',
-                          new=PropertyMock(return_value=expected_url)):
-            client = GithubOrgClient("example")
+        url_list = ["https://repo1", "https://repo2", "https://repo3"]
+        payload = {"repos_url": "https://api/github.com/orgs/exmp/repos"}
 
-            repos = client.public_repos()
+        mock_response = Mock()
+        mock_response.return_value = payload
 
-            # GithubOrgClient._public_repos_url.assert_called_once()
-            mock_get_json.assert_called_once_with(expected_url)
+        mock_get_json.return_value = mock_response
 
-            expected_repos = ["repo1", "repo2"]
-            self.assertEqual(repos, expected_repos)
+        with patch.object(GithubOrgClient, "_public_repos_url",
+                          new_callable=PropertyMock(return_value=url_list)):
+            result = client._public_repos_url
 
+            self.assertEqual(result, url_list)
+
+            mock_get_json.assert_called_once_with(payload[repos_url])
 
 if __name__ == '__main__':
     """
