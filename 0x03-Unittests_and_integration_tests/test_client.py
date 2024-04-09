@@ -3,8 +3,9 @@
 Test module for client.GithuborgClient
 """
 import unittest
-from unittest.mock import patch, Mock, PropertyMock
-from parameterized import parameterized
+from unittest.mock import patch, Mock, PropertyMock, MagicMock
+from parameterized import parameterized, parameterized_class
+from fixtures import TEST_PAYLOAD
 from client import GithubOrgClient
 
 
@@ -84,6 +85,47 @@ class TestGithubOrgClient(unittest.TestCase):
         client = GithubOrgClient("example")
         result = client.has_license(repo, license_key)
         self.assertEqual(result, expected_result)
+
+
+@parameterized_class(
+    ("org_payload", "repos_payload", "expected_repos", "apache2_repos"),
+    TEST_PAYLOAD
+)
+class TestIntegrationGithubOrgClient(unittest.TestCase):
+    """
+    Test instance for integration test
+    """
+    @classmethod
+    def setUpClass(cls):
+        """
+        class setup
+        """
+        cls.get_patcher = patch('requests.get')
+        cls.mock_get = cls.get_patcher.start()
+
+        # side effect for requests
+        cls.mock_get.side_effect = [
+            MagicMock(json=lambda: cls.org_payload),
+            MagicMock(json=lambda: cls.repos_payload)
+        ]
+
+        @classmethod
+        def tearDownClass(cls):
+            """
+            stops the patcher
+            """
+            cls.get_patcher.stop()
+
+        def test_public_repos(self):
+            """
+            instantiates GithubOrgClient
+            with mocked payloads and tests
+            """
+            client = GithubOrgClient("example")
+
+            repos = client.public_repos()
+
+            self.assertEqual(repos, self.expected_repos)
 
 
 if __name__ == '__main__':
