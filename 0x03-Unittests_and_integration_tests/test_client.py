@@ -52,7 +52,7 @@ class TestGithubOrgClient(unittest.TestCase):
             self.assertEqual(result, expected_url)
 
     @patch('client.get_json')
-    def test_public_repos(self, mock_get_json: Mock) -> None:
+    def test_public_repos(self, mock_get_json: Mock):
         """
         tests list of repos is expected from payload
         """
@@ -63,6 +63,7 @@ class TestGithubOrgClient(unittest.TestCase):
 
         with patch.object(GithubOrgClient, '_public_repos_url',
                           new=PropertyMock(return_value=expected_url)):
+
             client = GithubOrgClient("example")
 
             repos = client.public_repos()
@@ -72,9 +73,22 @@ class TestGithubOrgClient(unittest.TestCase):
             expected_repos = ["repo1", "repo2"]
             self.assertEqual(repos, expected_repos)
 
+    @parameterized.expand([
+        [{"license": {"key": "my_license"}}, "my_license", True],
+        [{"license": {"key": "other_license"}}, "my_license", False]
+        ])
+    def test_has_license(self, repo: dict, license_key: str, expected_result):
+        """
+        tests the client has_license function
+        """
+        client = GithubOrgClient("example")
+        result = client.has_license(repo, license_key)
+        self.assertEqual(result, expected_result)
+
 
 if __name__ == '__main__':
     """
     Runs the tests
     """
+
     unittest.main()
