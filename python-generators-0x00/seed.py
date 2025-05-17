@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS user_data (
 user_id CHAR(36) PRIMARY KEY,
 name VARCHAR(255) NOT NULL,
 email VARCHAR(255) NOT NULL,
-age DECIMAL(5, 2) NOT NULL,
+age INT NOT NULL,
 INDEX (user_id)
 )
 """
@@ -32,7 +32,7 @@ def connect_db():
         connection = mysql.connector.connect(
             user='root',
             host="localhost",
-            password='password'
+            password='12121963'
         )
         return connection
     except mysql.connector.Error as err:
@@ -60,7 +60,7 @@ def connect_to_prodev():
         return mysql.connector.connect(
             host="localhost",
             user="root",
-            password="password",
+            password="12121963",
             database=DB_NAME
         )
     except mysql.connection.Error as err:
