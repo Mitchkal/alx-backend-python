@@ -12,7 +12,7 @@ import sys
 
 TABLE_SCHEMA = """
 CREATE TABLE IF NOT EXISTS users (
-user_id CHAR(36) PRIMARY KEY,
+id CHAR(36) PRIMARY KEY,
 name VARCHAR(255) NOT NULL,
 email VARCHAR(255) NOT NULL,
 age INT NOT NULL
@@ -46,7 +46,7 @@ def connect_and_seed(data):
                     row["email"], int(row["age"])) for row in reader]
 
             query = """
-                    INSERT OR IGNORE INTO users (user_id, name, email, age)
+                    INSERT OR IGNORE INTO users (id, name, email, age)
                     VALUES(?, ?, ?, ?)
             """
             cursor.executemany(query, user_rows)
