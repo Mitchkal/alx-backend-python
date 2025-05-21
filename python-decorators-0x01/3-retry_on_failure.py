@@ -33,10 +33,12 @@ def retry_on_failure(retries=3, delay=2):
     """
     decorator factory to retry on failure
     """
+
     def decorator(func):
         """
         decorator
         """
+
         def wrapper(*args, **kwargs):
             """
             wrapper function to
@@ -51,7 +53,9 @@ def retry_on_failure(retries=3, delay=2):
                         time.sleep(delay)
                     else:
                         raise
+
         return wrapper
+
     return decorator
 
 
