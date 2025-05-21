@@ -6,6 +6,7 @@ Logs database queries by executed function
 
 import sqlite3
 import functools
+from datetime import datetime
 
 # decorator to lof sql queries
 
@@ -20,7 +21,7 @@ def log_queries(func):
         """
         query = kwargs.get("query") if "query" in kwargs \
             else (args[0] if args else "<no query>")
-        print(f"Query: {query}")
+        print(f"{datetime.now()}: Query: {query}")
         result = func(*args, **kwargs)
         return result
     return wrapper
