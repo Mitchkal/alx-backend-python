@@ -13,9 +13,10 @@ async def async_fetch_users():
     async with aiosqlite.connect("users.db") as db:
         async with db.execute("SELECT * FROM users") as cursor:
             rows = await cursor.fetchall()
-            print("\n All users:")
-            for row in rows:
-                print(row)
+            return rows
+            # print("\n All users:")
+            # for row in rows:
+                # print(row)
 
 
 async def async_fetch_older_users():
@@ -25,9 +26,10 @@ async def async_fetch_older_users():
     async with aiosqlite.connect("users.db") as db:
         async with db.execute("SELECT * FROM users WHERE age > 40") as cursor:
             rows = await cursor.fetchall()
-            print("\n Users older than 40:")
-            for row in rows:
-                print(row)
+            return rows
+            # print("\n Users older than 40:")
+            # for row in rows:
+                # print(row)
 
 
 async def fetch_concurrently():
