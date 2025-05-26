@@ -26,11 +26,11 @@ class TestAccessNestedMap(unittest.TestCase):
         self.assertEqual(access_nested_map(nested_map, path), expected)
 
     @parameterized.expand([
-        ({}, ("a",), "a"),
-        ({"a": 1}, ("a", "b"), "b"),
+        ({}, ("a",), "'a'"),
+        ({"a": 1}, ("a", "b"), "'b'"),
     ])
-    def test_key_error(self, nested_map: Mapping, path:
-                       Sequence, expected: str):
+    def test_access_nested_map_exception(self, nested_map: Mapping, path:
+                                         Sequence, expected: Any):
         """
         tests if accessnestedmap function raises correct key errors
         """
@@ -38,5 +38,9 @@ class TestAccessNestedMap(unittest.TestCase):
             access_nested_map(nested_map, path)
         self.assertEqual(str(context.exception), expected)
 
-    if __name__ == "__main__":
-        unittest.main()
+
+if __name__ == "__main__":
+    """
+    main function
+    """
+    unittest.main()
