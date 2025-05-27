@@ -48,7 +48,7 @@ class TestGetJson(unittest.TestCase):
         ("http://example.com", {"payload": True}),
         ("http://holberton.io", {"payload": False})
     ])
-    @patch('utils.requests.get')  # patching request.get in tils module
+    @patch('utils.requests.get')
     def test_payload(self, test_url, test_payload, mock_get):
         """
         Tests the get_json function with mock data
