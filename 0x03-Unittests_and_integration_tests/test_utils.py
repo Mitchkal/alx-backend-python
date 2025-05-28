@@ -6,7 +6,7 @@ function
 
 
 import unittest
-from unittest.mock import patch, Mock
+from unittest.mock import patch, Mock, PropertyMock
 from parameterized import parameterized
 from utils import access_nested_map, get_json, memoize
 from typing import Mapping, Sequence, Any
@@ -120,6 +120,18 @@ class TestGithubOrgClient(unittest.TestCase):
         client = GithubOrgClient(org_name)
         self.assertEqual(client.org, expected)
         mock_get_json.assert_called_once_with(org_url)
+
+    def test_public_repos_url(self) -> None:
+        """
+        tests _public_repos_url property
+        """
+        with patch.object(GithubOrgClient, '_public_repos_url',
+                          new_callable=PropertyMock) as mock_method:
+            ret_val = "https://api.github.com/orgs/test/repos"
+            mock_method.return_value = ret_val
+            obj = GithubOrgClient("test")
+            self.assertEqual(obj._public_repos_url,
+                             "https://api.github.com/orgs/test/repos")
 
 
 if __name__ == "__main__":
