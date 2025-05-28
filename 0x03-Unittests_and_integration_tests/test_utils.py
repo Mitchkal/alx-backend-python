@@ -3,6 +3,8 @@
 unit tests for access_nested_map
 function
 """
+
+
 import unittest
 from unittest.mock import patch, Mock
 from parameterized import parameterized
@@ -48,9 +50,9 @@ class TestGetJson(unittest.TestCase):
     @parameterized.expand([
         ("http://example.com", {"payload": True}),
         ("http://holberton.io", {"payload": False})
-        ])
+    ])
     @patch('utils.requests.get')
-    def test_payload(self, test_url: str, test_payload: dict, mock_get: Mock):
+    def test_get_json(self, test_url: str, test_payload: dict, mock_get: Mock):
         """
         Tests the get_json function with mock data
         """
