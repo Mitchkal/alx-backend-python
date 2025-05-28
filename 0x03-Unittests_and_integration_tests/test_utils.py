@@ -10,6 +10,7 @@ from unittest.mock import patch, Mock
 from parameterized import parameterized
 from utils import access_nested_map, get_json, memoize
 from typing import Mapping, Sequence, Any
+from client import GithubOrgClient
 
 
 class TestAccessNestedMap(unittest.TestCase):
@@ -52,7 +53,7 @@ class TestGetJson(unittest.TestCase):
         ("http://holberton.io", {"payload": False})
     ])
     @patch('utils.requests.get')
-    def test_get_json(self, test_url: str, test_payload: dict, mock_get: Mock):
+    def test_get_json(self, test_url: str, test_payload: Mapping, mock_get: Mock):
         """
         Tests the get_json function with mock data
         """
@@ -98,6 +99,27 @@ class TestMemoize(unittest.TestCase):
             self.assertEqual(result_1, 42)
             self.assertEqual(result_2, 42)
             mock_method.assert_called_once()
+
+
+class TestGithubOrgClient(unittest.TestCase):
+    """
+    Testclass for github client
+    """
+    @parameterized.expand([
+        ['google', {"repos_url": "https://api.github.com/orgs/google/repos"}],
+        ['abc', {"repos_url": "https://api.github.com/orgs/abc/repos"}]
+        ])
+    @patch('client.get_json')
+    def test_org(self, org_name: str, expected: dict,
+                 mock_get_json: Mock) -> None:
+        """
+        testing th org propert
+        """
+        org_url = f"https://api.github.com/orgs/{org_name}"
+        mock_get_json.return_value = expected
+        client = GithubOrgClient(org_name)
+        self.assertEqual(client.org, expected)
+        mock_get_json.assert_called_once_with(org_url)
 
 
 if __name__ == "__main__":
