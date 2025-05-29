@@ -17,24 +17,31 @@ class TestAccessNestedMap(unittest.TestCase):
     """
     class to test neseted map function
     """
-    @parameterized.expand([
-        ({"a": 1}, ("a",), 1),
-        ({"a": {"b": 2}}, ("a",), {"b": 2}),
-        ({"a": {"b": 2}}, ("a", "b"), 2),
-     ])
-    def test_access_nested_map(self, nested_map: Mapping, path:
-                               Sequence, expected: Any):
+
+    @parameterized.expand(
+        [
+            ({"a": 1}, ("a",), 1),
+            ({"a": {"b": 2}}, ("a",), {"b": 2}),
+            ({"a": {"b": 2}}, ("a", "b"), 2),
+        ]
+    )
+    def test_access_nested_map(
+        self, nested_map: Mapping, path: Sequence, expected: Any
+    ):
         """
         Tests the nested map function with different inputs
         """
         self.assertEqual(access_nested_map(nested_map, path), expected)
 
-    @parameterized.expand([
-        ({}, ("a",), "'a'"),
-        ({"a": 1}, ("a", "b"), "'b'"),
-    ])
-    def test_access_nested_map_exception(self, nested_map: Mapping, path:
-                                         Sequence, expected: Any):
+    @parameterized.expand(
+        [
+            ({}, ("a",), "'a'"),
+            ({"a": 1}, ("a", "b"), "'b'"),
+        ]
+    )
+    def test_access_nested_map_exception(
+        self, nested_map: Mapping, path: Sequence, expected: Any
+    ):
         """
         tests if accessnestedmap function raises correct key errors
         """
@@ -48,11 +55,13 @@ class TestGetJson(unittest.TestCase):
     Test class for get_json function
     """
 
-    @parameterized.expand([
-        ("http://example.com", {"payload": True}),
-        ("http://holberton.io", {"payload": False})
-    ])
-    @patch('utils.requests.get')
+    @parameterized.expand(
+        [
+            ("http://example.com", {"payload": True}),
+            ("http://holberton.io", {"payload": False}),
+        ]
+    )
+    @patch("utils.requests.get")
     def test_get_json(self, test_url: str, test_payload: dict, mock_get: Mock):
         """
         Tests the get_json function with mock data
@@ -68,18 +77,21 @@ class TestGetJson(unittest.TestCase):
 
 
 class TestMemoize(unittest.TestCase):
-    """"
+    """ "
     Test class for memoization functionality
     """
+
     def test_memoize(self):
         """
         memoization
         method
         """
+
         class TestClass:
             """
             test class
             """
+
             def a_method(self):
                 """
                 returns 42
@@ -90,7 +102,7 @@ class TestMemoize(unittest.TestCase):
             def a_property(self):
                 return self.a_method()
 
-        with patch.object(TestClass, 'a_method',
+        with patch.object(TestClass, "a_method",
                           return_value=42) as mock_method:
             mock_object = TestClass()
             result_1 = mock_object.a_property
@@ -105,11 +117,15 @@ class TestGithubOrgClient(unittest.TestCase):
     """
     Testclass for github client
     """
-    @parameterized.expand([
-        ['google', {"repos_url": "https://api.github.com/orgs/google/repos"}],
-        ['abc', {"repos_url": "https://api.github.com/orgs/abc/repos"}]
-        ])
-    @patch('client.get_json')
+
+    @parameterized.expand(
+        [
+            ["google",
+                {"repos_url": "https://api.github.com/orgs/google/repos"}],
+            ["abc", {"repos_url": "https://api.github.com/orgs/abc/repos"}],
+        ]
+    )
+    @patch("client.get_json")
     def test_org(self, org_name: str, expected: dict,
                  mock_get_json: Mock) -> None:
         """
@@ -125,22 +141,26 @@ class TestGithubOrgClient(unittest.TestCase):
         """
         tests _public_repos_url property
         """
-        with patch.object(GithubOrgClient, '_public_repos_url',
-                          new_callable=PropertyMock) as mock_method:
+        with patch.object(
+            GithubOrgClient, "_public_repos_url", new_callable=PropertyMock
+        ) as mock_method:
             ret_val = "https://api.github.com/orgs/test/repos"
             mock_method.return_value = ret_val
             obj = GithubOrgClient("test")
-            self.assertEqual(obj._public_repos_url,
-                             "https://api.github.com/orgs/test/repos")
+            self.assertEqual(
+                obj._public_repos_url, "https://api.github.com/orgs/test/repos"
+            )
 
-    @patch('client.get_json')
+    @patch("client.get_json")
     def test_public_repos(self, mock_get_json: Mock) -> None:
         """
         unit test for public_repos method
         """
         test_payload = [{"name": "repo1"}, {"name": "repo2"}]
-        with patch('client.GithubOrgClient._public_repos_url',
-                    new_callable=PropertyMock) as mock_url:
+        with patch(
+            "client.GithubOrgClient._public_repos_url",
+            new_callable=PropertyMock
+        ) as mock_url:
             url = "https://api.github.com/orgs/test/repos"
             mock_url.return_value = url
             mock_get_json.return_value = test_payload
