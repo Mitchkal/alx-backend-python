@@ -14,8 +14,8 @@ class TestGithubOrgClient(unittest.TestCase):
     Testcase for githuborgclient
     """
     @parameterized.expand([
-        ["google",],
-        ["abc",]
+        ["google", ],
+        ["abc", ]
         ])
     @patch('client.get_json')
     def test_org(self, name: str, mock_get: Mock):
