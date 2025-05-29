@@ -140,7 +140,7 @@ class TestGithubOrgClient(unittest.TestCase):
         """
         test_payload = [{"name": "repo1"}, {"name": "repo2"}]
         with patch('client.GithubOrgClient._public_repos_url',
-                   new_callable=PropertyMock) as mock_url:
+                    new_callable=PropertyMock) as mock_url:
             url = "https://api.github.com/orgs/test/repos"
             mock_url.return_value = url
             mock_get_json.return_value = test_payload
