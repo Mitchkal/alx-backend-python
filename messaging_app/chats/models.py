@@ -15,9 +15,13 @@ class User(AbstractUser):
     user_id = models.UUIDField(default=uuid.uuid4, primary_key=True, editable=False)
     email = models.EmailField(unique=True)
     password = models.CharField(max_length=128)
-    first_name = models.CharFiled(max_length=30)
-    last_name = models.CharFiled(max_length=30)
+    first_name = models.CharField(max_length=30)
+    last_name = models.CharField(max_length=30)
+    status = models.CharField(max_length=100, default="Hey there! Im using ChatApp")
     profile_picture = models.ImageField(upload_to="profiles/", blank=True, null=True)
+
+    USERNAME_FIELD = "email"
+    REQUIRED_FIELDS = ["username"]
 
     """
     bio = models.TextField(blank=True, null=True)

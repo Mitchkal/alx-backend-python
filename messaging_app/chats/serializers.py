@@ -14,13 +14,44 @@ class UserSerializer(serializers.ModelSerializer):
     serializer for users
     """
 
+    password = serializers.CharField(write_only=True, min_length=8)
+
     class Meta:
         """
         meta class
         """
 
         model = User
-        fields = ["user_id", "username", "first_name", "last_name", "profile_picture"]
+        fields = [
+            "user_id",
+            "username",
+            "first_name",
+            "last_name",
+            "profile_picture",
+            "status",
+            "password",
+        ]
+        extra_kwargs = {"password": {"write_only": True}}
+
+    def create(self, validated_data):
+        """
+        creates validated data
+        """
+        password = validated_data.pop("password")
+        user = User(**validated_data)
+        user.set_password(password)
+        user.save()
+        return user
+
+    def validate_password(self, value):
+        """
+        custom password validation
+        """
+        if "password" in value.lower():
+            raise serializers.ValidationError(
+                "Password should not contain the word 'password'."
+            )
+        return value
 
 
 class MessageSerializer(serializers.ModelSerializer):
@@ -65,10 +96,9 @@ class MessageSerializer(serializers.ModelSerializer):
         conversation = validated_data.pop("conversation_id")
 
         # create message with foreign keys
-        message = Message.objects.create(
+        return Message.objects.create(
             sender=sender, conversation=conversation, **validated_data
         )
-        return message
 
 
 class ConversationSerializer(serializers.ModelSerializer):
@@ -81,7 +111,8 @@ class ConversationSerializer(serializers.ModelSerializer):
     # Show all users in a conversation
     participants = UserSerializer(many=True, read_only=True)
     # Show all related messages
-    messages = MessageSerializer(many=True, read_only=True)
+    messages = serializers.SerializerMethodField()  # include nested message
+    # messages = MessageSerializer(many=True, read_only=True)
 
     class Meta:
         """
@@ -90,3 +121,10 @@ class ConversationSerializer(serializers.ModelSerializer):
 
         model = Conversation
         fields = ["conversation_id", "participants", "created_at", "messages"]
+
+    def get_messages(self, obj):
+        """
+        get all messages for a conversation
+        """
+        messages = Message.objects.filter(conversation=obj)
+        return MessageSerializer(messages, many=True).data
