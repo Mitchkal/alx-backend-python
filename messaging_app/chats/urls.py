@@ -7,10 +7,11 @@ from rest_framework.routers import DefaultRouter
 from .views import ConversationViewSet, MessageViewSet
 
 
-router = DefaultRouter()
-router.register(r'conversations', ConversationViewSet, basename='conversation')
-router.register(r'messages', MessageViewSet, basename='message')
+router = DefaultRouter(trailing_slash=False)
+
+router.register(r"conversations", ConversationViewSet, basename="conversation")
+router.register(r"messages", MessageViewSet, basename="message")
 
 urlpatterns = [
-        path('', include(router.urls)),
+    path("", include(router.urls)),
 ]

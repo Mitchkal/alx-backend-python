@@ -87,7 +87,7 @@ class MessageViewSet(viewsets.ModelViewSet):
         Filter messages to include only thise where user is participant
         """
         return self.queryset.filter(
-            conversation__participats=self.request.user
+            conversation__participants=self.request.user
         ).select_related("sender", "conversation")
 
     def create(self, request, *args, **kwargs):
