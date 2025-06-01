@@ -20,7 +20,7 @@ class UserSerializer(serializers.ModelSerializer):
         """
 
         model = User
-        fields = ["id", "username", "bio", "email", "profile_picture"]
+        fields = ["user_id", "username", "first_name", "last_name", "profile_picture"]
 
 
 class MessageSerializer(serializers.ModelSerializer):
@@ -32,13 +32,43 @@ class MessageSerializer(serializers.ModelSerializer):
     # and not just a sender id
     sender = UserSerializer(read_only=True)
 
+    # to accept sender id in a post
+    sender_id = serializers.PrimaryKeyRelatedField(
+        queryset=User.objects.all(), write_only=True
+    )
+
+    # Accept convesation id in a post
+    conversation_id = serializers.PrimaryKeyRelatedField(
+        queryset=Conversation.objects.all(), write_only=True
+    )
+
     class Meta:
         """
         meta class
         """
 
         model = Message
-        field = ["id", "sender", "content", "timestamp"]
+        fields = [
+            "message_id",
+            "sender",  # nested read
+            "sender_id",  # write only
+            "conversation_id",  # write only
+            "message_body",
+            "sent_at",
+        ]
+
+    def create(self, validated_data):
+        """
+        Extract write-only fields and remove from data
+        """
+        sender = validated_data.pop("sender_id")
+        conversation = validated_data.pop("conversation_id")
+
+        # create message with foreign keys
+        message = Message.objects.create(
+            sender=sender, conversation=conversation, **validated_data
+        )
+        return message
 
 
 class ConversationSerializer(serializers.ModelSerializer):
@@ -59,4 +89,4 @@ class ConversationSerializer(serializers.ModelSerializer):
         """
 
         model = Conversation
-        fields = ["id", "participants", "created_at", "messages"]
+        fields = ["conversation_id", "participants", "created_at", "messages"]

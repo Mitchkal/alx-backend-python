@@ -17,12 +17,12 @@ class User(AbstractUser):
     password = models.CharField(max_length=128)
     first_name = models.CharFiled(max_length=30)
     last_name = models.CharFiled(max_length=30)
+    profile_picture = models.ImageField(upload_to="profiles/", blank=True, null=True)
 
     """
     bio = models.TextField(blank=True, null=True)
     phone_number = models.CharField(max_length=15, blank=True, null=True)
-    profile_picture = models.ImageField(upload_to="profiles/",
-                                        blank=True, null=True)
+
     date_of_join = models.DateField(auto_now_add=True)
     date_of_birth = models.DateField()
     """
