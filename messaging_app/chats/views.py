@@ -3,6 +3,8 @@
 viewsets
 """
 from django.shortcuts import render
+from django_filters_rest_framework import DjangoFilterBackend
+from .filters import ConversationFilter, MessageFilter
 from rest_framework import viewsets, status
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
@@ -23,13 +25,17 @@ class ConversationViewSet(viewsets.ModelViewSet):
     queryset = Conversation.objects.all()
     serializer_class = ConversationSerializer
     permission_classes = [IsAuthenticated]
+    filter_backends = [DjangoFilterBackend]
+    filterset_class = ConversationFilter
 
     def get_queryset(self):
         """
         Filter conversations to include only where
         requesting user is participant
         """
-        return self.queryset.filter(participants=self.request.user)
+        return self.queryset.filter(participants=self.request.user).prefetch_related(
+            "participants", "messages"
+        )
 
     def create(self, request, *args, **kwargs):
         """
@@ -73,12 +79,16 @@ class MessageViewSet(viewsets.ModelViewSet):
     queryset = Message.objects.all()
     serializer_class = MessageSerializer
     permission_classes = [IsAuthenticated]
+    filter_backends = [DjangoFilterBackend]
+    filterset_class = MessageFilter
 
     def get_queryset(self):
         """
         Filter messages to include only thise where user is participant
         """
-        return self.queryset.filter(conversation__participats=self.request.user)
+        return self.queryset.filter(
+            conversation__participats=self.request.user
+        ).select_related("sender", "conversation")
 
     def create(self, request, *args, **kwargs):
         """
@@ -87,7 +97,9 @@ class MessageViewSet(viewsets.ModelViewSet):
         Returns a serialized message object with HTTP 201 status for success
         or error message with HTTP 403/400 status on failure
         """
-        serializer = self.get_serializer(data=request.data)
+        serializer = self.get_serializer(
+            data=request.data, context={"request": request}
+        )
         serializer.is_valid(raise_exception=True)
 
         conversation = serializer.validated_data["conversation"]
