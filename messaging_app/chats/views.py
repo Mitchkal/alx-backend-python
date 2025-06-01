@@ -3,9 +3,9 @@
 viewsets
 """
 from django.shortcuts import render
-from rest_framework import viewsets
+from rest_framework import viewsets, status
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
-from rest_framework import status
 from .models import Conversation, Message
 from .serializers import ConversationSerializer, MessageSerializer
 from django.contrib.auth import get_user_model
@@ -17,64 +17,86 @@ User = get_user_model()
 # Create your views here.
 class ConversationViewSet(viewsets.ModelViewSet):
     """
-    concversation viewset
+    viewset for managing conversation
     """
+
     queryset = Conversation.objects.all()
     serializer_class = ConversationSerializer
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        """
+        Filter conversations to include only where
+        requesting user is participant
+        """
+        return self.queryset.filter(participants=self.request.user)
 
     def create(self, request, *args, **kwargs):
         """
         creates a convesration
+        request: HTTP request with participant IDS in the 'participants
+        field
+        Returns a serialized conversation with HTTP 201 status on success
+        or error message with HTTP 400 status for failure
         """
         user_ids = request.data.get("participants", [])
 
         if not user_ids or len(user_ids) < 2:
-            return Response({"error": "Convo must have \
-                2/more participants."}, status=400)
+            return Response(
+                {"error": "Conversation must have 2/more participants."},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+        if request.user.id not in user_ids:
+            return Response(
+                {"error": "Requesting user must be a participant."},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
         users = User.objects.filter(id__in=user_ids)
         if users.count() != len(user_ids):
-            return Response({"error": "One or more users not found."},
-                            status=400)
+            return Response(
+                {"error": "One or more users not found."},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
 
         conversation = Conversation.objects.create()
         conversation.participants.set(users)
-        conversation.save()
-
-        serializer = self.get_serializer(conversation)
+        serializer = self.get_serializer(conversation, context={"request": request})
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 
 class MessageViewSet(viewsets.ModelViewSet):
     """
-    viewset for messages
+    viewset for managing messages
     """
+
     queryset = Message.objects.all()
     serializer_class = MessageSerializer
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        """
+        Filter messages to include only thise where user is participant
+        """
+        return self.queryset.filter(conversation__participats=self.request.user)
 
     def create(self, request, *args, **kwargs):
         """
-        creates messages
+        creates a new message in a conversation
+        request: contains message data
+        Returns a serialized message object with HTTP 201 status for success
+        or error message with HTTP 403/400 status on failure
         """
-        conversation_id = request.data.get("converation")
-        sender_id = request.data.get("sender")
-        content = request.data.get("content")
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
 
-        if not (conversation_id and sender_id and content):
-            return Response({"error": "convo sender, & content required"},
-                            status=400)
-        try:
-            conversation = Conversation.objects.get(id=conversation_id)
-            sender = User.objects.get(id=sender_id)
-        except Conversation.DoesNotExist:
-            return Response({"error": "Conversation not found"}, status=404)
-        except User.DoesNotExist:
-            return Response({"error": "Sender not found"}, status=404)
+        conversation = serializer.validated_data["conversation"]
+        sender = serializer.validated_data["sender"]
 
-        # check if sender in conversation
         if sender not in conversation.participants.all():
-            return Response({"error": "Sender not part of Conversation"},
-                            status=403)
-        message = Message.objects.create(conversation=conversation,
-                                         sender=sender, content=content)
-        serializer = self.get_serializer(message)
+            return Response(
+                {"error": "Sender not participant in this conversation."},
+                status=status.HTTP_403_FORBIDDEN,
+            )
+        self.perform_create(serializer)
         return Response(serializer.data, status=status.HTTP_201_CREATED)

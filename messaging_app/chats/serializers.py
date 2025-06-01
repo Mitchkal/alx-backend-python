@@ -5,6 +5,7 @@ They convert model instances
 into json for the API resposnes. They also convert
 JSON into model nstances when creating or udating data
 """
+import re
 from rest_framework import serializers
 from .models import User, Message, Conversation
 
@@ -14,7 +15,7 @@ class UserSerializer(serializers.ModelSerializer):
     serializer for users
     """
 
-    password = serializers.CharField(write_only=True, min_length=8)
+    password = serializers.CharField(min_length=8)
 
     class Meta:
         """
@@ -35,23 +36,40 @@ class UserSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         """
-        creates validated data
+        creates new user with hashed password
         """
-        password = validated_data.pop("password")
-        user = User(**validated_data)
-        user.set_password(password)
-        user.save()
-        return user
+        try:
+            password = validated_data.pop("password")
+            user = User(**validated_data)
+            user.set_password(password)
+            user.save()
+            return user
+        except Exception as e:
+            raise serializers.ValidationError(f"Failed to create user: {str(e)}")
 
     def validate_password(self, value):
         """
-        custom password validation
+        Validates passsword meets security requirements
         """
-        if "password" in value.lower():
+        if not re.search(r"[!@#$%^&*(),.?\":{}|<>]", value):
             raise serializers.ValidationError(
-                "Password should not contain the word 'password'."
+                "Password must contain at least one special character"
             )
         return value
+
+
+class LightUserSerializer(serializers.ModelSerializer):
+    """
+    light serializer for sender
+    """
+
+    class Meta:
+        """
+        meta class
+        """
+
+        model = User
+        fields = ["id", "username"]
 
 
 class MessageSerializer(serializers.ModelSerializer):
@@ -61,7 +79,7 @@ class MessageSerializer(serializers.ModelSerializer):
 
     # facilitates nested relationship where message shows sender info
     # and not just a sender id
-    sender = UserSerializer(read_only=True)
+    sender = LightUserSerializer(read_only=True)
 
     # to accept sender id in a post
     sender_id = serializers.PrimaryKeyRelatedField(
@@ -90,29 +108,33 @@ class MessageSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         """
-        Extract write-only fields and remove from data
+        create new message with provider sender and conversation
         """
-        sender = validated_data.pop("sender_id")
-        conversation = validated_data.pop("conversation_id")
+        try:
+            sender = validated_data.pop("sender_id")
+            conversation = validated_data.pop("conversation_id")
 
-        # create message with foreign keys
-        return Message.objects.create(
-            sender=sender, conversation=conversation, **validated_data
-        )
+            # create message with foreign keys
+            return Message.objects.create(
+                sender=sender, conversation=conversation, **validated_data
+            )
+        except Exception as e:
+            raise serializers.ValidationError(f"Failed to create message: {str(e)}")
 
 
 class ConversationSerializer(serializers.ModelSerializer):
     """
     The conversation serializer
-    Serialize both the participants as the users
-    and the messages nested inside
+    Handle conversation creation and retrieval
     """
 
     # Show all users in a conversation
-    participants = UserSerializer(many=True, read_only=True)
+    participants = LightUserSerializer(many=True, read_only=True)
     # Show all related messages
-    messages = serializers.SerializerMethodField()  # include nested message
-    # messages = MessageSerializer(many=True, read_only=True)
+    messages = MessageSerializer(many=True, read_only=True)
+    participant_ids = serializers.ListField(
+        child=serializers.IntegerField(), write_only=True
+    )
 
     class Meta:
         """
@@ -120,11 +142,10 @@ class ConversationSerializer(serializers.ModelSerializer):
         """
 
         model = Conversation
-        fields = ["conversation_id", "participants", "created_at", "messages"]
-
-    def get_messages(self, obj):
-        """
-        get all messages for a conversation
-        """
-        messages = Message.objects.filter(conversation=obj)
-        return MessageSerializer(messages, many=True).data
+        fields = [
+            "conversation_id",
+            "participants",
+            "participant_ids",
+            "created_at",
+            "messages",
+        ]
