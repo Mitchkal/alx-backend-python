@@ -3,7 +3,7 @@
 viewsets
 """
 from django.shortcuts import render
-from django_filters_rest_framework import DjangoFilterBackend
+from django_filters.rest_framework import DjangoFilterBackend
 from .filters import ConversationFilter, MessageFilter
 from rest_framework import viewsets, status
 from rest_framework.permissions import IsAuthenticated

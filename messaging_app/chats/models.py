@@ -50,14 +50,15 @@ class Conversation(models.Model):
     participants = models.ManyToManyField(User, related_name="conversations")
     created_at = models.DateTimeField(auto_now_add=True)
 
+    class Meta:
+        ordering = ['-created_at']
+
     def __str__(self):
         """
         return participant names in a conversation
         """
-
-        participant_names = ", ".join(
-            [user.username for user in self.participants.all()]
-        )
+        participants = self.participants.values_list('username', flat=True)
+        participant_names = ", ".join(participants)
         return f"Conversation between {participant_names}"
 
 
@@ -66,7 +67,7 @@ class Message(models.Model):
     model for the chat messages
     """
 
-    message_id = models.UUIField(primary_key=True, default=uuid.uuid4, editable=False)
+    message_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     conversation = models.ForeignKey(
         Conversation, on_delete=models.CASCADE, related_name="messages"
     )
