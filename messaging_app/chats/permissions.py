@@ -19,17 +19,41 @@ class IsParticipantOfConversation(permissions.BasePermission):
         """
         if not request.user.is_authenticated:
             return False
+
+        # When creating a message, check if a user is a participanty in
+        #  the specified conversation
+        if view.action == "create" and request.data.get("conversation"):
+            try:
+                conversation_id = request.data.get("conversation")
+                conversation = Conversation.objects.get(conversation_id=conversation_id)
+                return request.user in conversation.participants.all()
+            except Conversation.DoesNotExist:
+                return False
+        # for other actions, rely on object-level permissions
+        # or allow authenticated users
         return True
 
     def has_object_permission(self, request, view, obj):
         """
-        handle conversation objects
+        handle conversation objects. Checks if a user is aparticipant
+        in a given conversation for the given object. For messages,
+        restrict GET, PUT, PATCH, DELETE to conversation participant.
+        For conversations, restrict to participants.
+
         """
+
+        # Allow superuser full access
+        if request.user.is_superuser:
+            return True
+
         if isinstance(obj, Conversation):
             # for conversation objects
             return request.user in obj.participants.all()
 
         if isinstance(obj, Message):
-            # for message objects
-            return request.user in obj.conversation.participants.all()
+            # for message objects Allow GET, PUT, PATCH,
+            # DELETE only for conversation
+            # participants
+            if request.method in ["GET", "PUT", "PATCH", "DELETE"]:
+                return request.user in obj.conversation.participants.all()
         return False

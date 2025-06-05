@@ -79,7 +79,7 @@ class ConversationViewSet(viewsets.ModelViewSet):
         if user.is_authenticated:
             # obtain sent at of last message
             latest_message = (
-                Message.objects.filter(conversation=OuterRef("pk"))
+                Message.objects.filter(conversation=OuterRef("conversation_id"))
                 .order_by("-sent_at")
                 .values("sent_at")[:1]
             )
