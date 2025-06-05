@@ -34,14 +34,34 @@ class UserViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         """
-        optionally restrics returned users toa  given email by
-        filtering againsta an email query param in the url
+        Filter messages to include only thise where user is participant
+        pre-fetches sender and conversation
         """
-        queryset = User.objects.all()
-        email = self.request.query_params.get("email", None)
-        if email is not None:
-            queryset = queryset.filter(email__iexact=email)
-        return queryset
+        user = self.request.user
+        if user.is_authenticated:
+            if user.is_superuser:
+                return User.objects.all()
+
+            shared_conversations = (
+                self.queryset.filter(conversation__participants=user)
+                .select_related("sender", "conversation")
+                .prefetch_related("read_by")
+            )
+            return User.objects.filter(
+                conversations__in=shared_conversations
+            ).distinct()
+        return User.objects.none()
+
+    # def get_queryset(self):
+    #     """
+    #     optionally restrics returned users toa  given email by
+    #     filtering againsta an email query param in the url
+    #     """
+    #     queryset = User.objects.all()
+    #     email = self.request.query_params.get("email", None)
+    #     if email is not None:
+    #         queryset = queryset.filter(email__iexact=email)
+    #     return queryset
 
 
 # class IsConversationParticipant(BasePermission):
@@ -113,6 +133,10 @@ class ConversationViewSet(viewsets.ModelViewSet):
         """
         conversation = self.get_object()
         messages = Message.objects.filter(conversation=conversation)
+        page = self.paginate_queryset(messages)
+        if page is not None:
+            serializer = MessageSerializer(page, many=True)
+            return self.get_paginated_response(serializer.data)
         serializer = MessageSerializer(messages, many=True)
         return Response(serializer.data)
 
@@ -176,6 +200,14 @@ class MessageViewSet(viewsets.ModelViewSet):
             )
         return Message.objects.none()
 
+    def get_permissions(self):
+        """
+        gets participant permissions
+        """
+        if self.action in ["update", "partial_update", "destroy"]:
+            return [IsParticipantOfConversation()]
+        return [IsParticipantOfConversation()]
+
     def perform_create(self, serializer):
         """
         creates a message and update the conversation's last
@@ -184,6 +216,9 @@ class MessageViewSet(viewsets.ModelViewSet):
         message_type, optional attachment)
         Returns a serialized message object with HTTP 201 status for success
         or error message with HTTP 403/400 status on failure
+        alternatively:
+               message = serializer.save(sender=self.request.user)
+                message.read_by.add(self.request.user)
 
         """
         message = serializer.save(sender=self.request.user)
