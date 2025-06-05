@@ -15,7 +15,7 @@ class UserSerializer(serializers.ModelSerializer):
     serializer for users
     """
 
-    password = serializers.CharField(min_length=8)
+    password = serializers.CharField(min_length=8, write_only=True)
 
     class Meta:
         """
@@ -25,8 +25,9 @@ class UserSerializer(serializers.ModelSerializer):
         model = User
         fields = [
             "user_id",
-            "username",
+            "email",
             "first_name",
+            "username",
             "last_name",
             "profile_picture",
             "status",
@@ -69,7 +70,7 @@ class LightUserSerializer(serializers.ModelSerializer):
         """
 
         model = User
-        fields = ["id", "username"]
+        fields = ["user_id", "email"]
 
 
 class MessageSerializer(serializers.ModelSerializer):
@@ -83,13 +84,14 @@ class MessageSerializer(serializers.ModelSerializer):
 
     # to accept sender id in a post
     sender_id = serializers.PrimaryKeyRelatedField(
-        queryset=User.objects.all(), write_only=True
+        queryset=User.objects.all(), write_only=True, source="sender"
     )
 
     # Accept convesation id in a post
     conversation_id = serializers.PrimaryKeyRelatedField(
-        queryset=Conversation.objects.all(), write_only=True
+        queryset=Conversation.objects.all(), write_only=True, source="conversation"
     )
+    read_by = LightUserSerializer(many=True, read_only=True)
 
     class Meta:
         """
@@ -104,6 +106,9 @@ class MessageSerializer(serializers.ModelSerializer):
             "conversation_id",  # write only
             "message_body",
             "sent_at",
+            "message_type",
+            "attachment",
+            "read_by",
         ]
 
     def create(self, validated_data):
@@ -111,15 +116,24 @@ class MessageSerializer(serializers.ModelSerializer):
         create new message with provider sender and conversation
         """
         try:
-            sender = validated_data.pop("sender_id")
-            conversation = validated_data.pop("conversation_id")
-
-            # create message with foreign keys
-            return Message.objects.create(
-                sender=sender, conversation=conversation, **validated_data
-            )
+            message = Message.objects.create(**validated_data)
+            # mark message as read by sender
+            message.read_by.add(validated_data["sender"])
+            return message
         except Exception as e:
             raise serializers.ValidationError(f"Failed to create message: {str(e)}")
+
+    def validate(self, data):
+        """
+        validate message type and attachment
+        """
+        message_type = data.get("message_type", "TEXT")
+        attachment = data.get("attachment")
+        if message_type != "TEXT" and not attachment:
+            raise serializers.ValidationError(
+                f"Attachment required for {message_type} message"
+            )
+        return data
 
 
 class ConversationSerializer(serializers.ModelSerializer):
@@ -133,8 +147,9 @@ class ConversationSerializer(serializers.ModelSerializer):
     # Show all related messages
     messages = MessageSerializer(many=True, read_only=True)
     participant_ids = serializers.ListField(
-        child=serializers.IntegerField(), write_only=True
+        child=serializers.UUIDField(), write_only=True
     )
+    last_message = serializers.SerializerMethodField()
 
     class Meta:
         """
@@ -146,6 +161,32 @@ class ConversationSerializer(serializers.ModelSerializer):
             "conversation_id",
             "participants",
             "participant_ids",
+            "name",
             "created_at",
             "messages",
+            "last_message",
         ]
+
+    def get_last_message(self, obj):
+        """
+        get most recent message in conversation
+        """
+        last_message = obj.last_message()
+        return MessageSerializer(last_message).data if last_message else None
+
+    def create(self, validated_data):
+        """
+        Create new conversation with participants
+        """
+        try:
+            participant_ids = validated_data.pop("participant_ids")
+            users = User.objects.filter(user_id__in=participant_ids)
+            if users.count() != len(participant_ids):
+                raise serializers.ValidationError("One or more users not found")
+            conversation = Conversation.objects.create(**validated_data)
+            conversation.participants.set(users)
+            return conversation
+        except Exception as e:
+            raise serializers.ValidationError(
+                f"Failed to create conversation: {str(e)}"
+            )
