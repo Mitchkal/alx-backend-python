@@ -13,6 +13,7 @@ from .models import Conversation, Message, User
 from .serializers import ConversationSerializer, MessageSerializer, UserSerializer
 from .permissions import IsParticipantOfConversation
 from django.db.models import F, OuterRef, Subquery
+from .pagination import MessagePagination
 
 # from django.contrib.auth import get_user_model
 # from django.db.models import Count
@@ -133,10 +134,11 @@ class ConversationViewSet(viewsets.ModelViewSet):
         """
         conversation = self.get_object()
         messages = Message.objects.filter(conversation=conversation)
-        page = self.paginate_queryset(messages)
+        paginator = MessagePagination()
+        page = paginator.paginate_queryset(messages, request)
         if page is not None:
             serializer = MessageSerializer(page, many=True)
-            return self.get_paginated_response(serializer.data)
+            return paginator.get_paginated_response(serializer.data)
         serializer = MessageSerializer(messages, many=True)
         return Response(serializer.data)
 
