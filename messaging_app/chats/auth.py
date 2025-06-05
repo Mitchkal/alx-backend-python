@@ -2,6 +2,7 @@
 """ "
 Authentication-related class
 for chat application
+ensure email authentication is explicit, enhancing modularity.
 """
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from rest_framework_simplejwt.views import TokenObtainPairView
