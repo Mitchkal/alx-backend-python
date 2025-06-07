@@ -39,7 +39,7 @@ class RequestLoggingMiddleware:
 
         # with open("requests.log", "a") as f:
         #     f.write(f"{datetime.now()} - User: {user} - Path: {request.path} \n")
-        logger.info(f"{datetime.now()} - User: {user} - Path: {request.path} \n")
+        logger.info(f"{datetime.now()} - User: {user} - Path: {request.path}")
 
         return response
 
@@ -116,3 +116,49 @@ class OffensiveLanguageMiddleware:
         # process request
         response = self.get_response(request)
         return response
+
+
+class RolePermissionMiddleware:
+    """
+    midleware to restrict access for roles
+    """
+
+    def __init__(self, get_request):
+        """
+        initialization
+        """
+        self.get_request = get_request
+
+    def __call__(self, request):
+        """
+        restricts specific permisiions to admin or moderator
+        """
+        restricted_paths = [
+            "/api/users",
+        ]
+        restricted_methods = {
+            "/api/messages/": ["DELETE"],
+            "/api/conversations/": ["DELETE"],
+        }
+
+        # check if request matches restricted actions
+        is_restricted = request.path in restricted_paths or any(
+            request.path.startswith(path) and request.method in methods
+            for path, methods in restricted_methods.items()
+        )
+        if is_restricted:
+            # check if user authenticated
+            if not request.user.is_authenticated:
+                return HttpResponseForbidden("Authentication required for this action.")
+
+            # check if user is admin(superuser/staff) or moderator
+            is_admin = request.user.is_superuser or request.user.is_staff
+            is_moderator = request.user.is_staff and not request.user.is_superuser
+
+            if not (is_admin or is_moderator):
+                return HttpResponseForbidden(
+                    "Admin or moderator role required for this action."
+                )
+
+            response = self.get_response(request)
+            return response
