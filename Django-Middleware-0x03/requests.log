@@ -68,3 +68,58 @@ Forbidden: /api/
 Forbidden: /api/
 2025-06-07 12:37:31.480832 - User: numbskull@gmail.com - Path: /api/ 
 
+2025-06-07 19:00:00+00:00 - User: numbskull@gmail.com - Path: /api/messages/ 
+
+2025-06-07 16:00:00+00:00 - User: AnonymousUser - Path: /api/messages/ 
+
+Forbidden: /api/messages/
+2025-06-07 16:00:00+00:00 - User: AnonymousUser - Path: /api/messages/ 
+
+Forbidden: /api/messages/
+2025-06-07 19:00:00+00:00 - User: numbskull@gmail.com - Path: /api/messages/ 
+
+2025-06-07 16:00:00+00:00 - User: AnonymousUser - Path: /api/messages/ 
+
+Forbidden: /api/messages/
+2025-06-07 16:00:00+00:00 - User: AnonymousUser - Path: /api/messages/ 
+
+Forbidden: /api/messages/
+2025-06-07 19:00:00+00:00 - User: numbskull@gmail.com - Path: /api/messages/ 
+
+2025-06-07 16:00:00+00:00 - User: AnonymousUser - Path: /api/messages/ 
+
+Forbidden: /api/messages/
+2025-06-07 16:00:00+00:00 - User: AnonymousUser - Path: /api/messages/ 
+
+Forbidden: /api/messages/
+2025-06-07 19:00:00+00:00 - User: numbskull@gmail.com - Path: /api/messages/ 
+
+2025-06-07 16:00:00+00:00 - User: AnonymousUser - Path: /api/messages/ 
+
+Forbidden: /api/messages/
+2025-06-07 16:00:00+00:00 - User: AnonymousUser - Path: /api/messages/ 
+
+Forbidden: /api/messages/
+2025-06-07 19:00:00+00:00 - User: numbskull@gmail.com - Path: /api/messages/ 
+
+2025-06-07 16:00:00+00:00 - User: AnonymousUser - Path: /api/messages/ 
+
+Forbidden: /api/messages/
+2025-06-07 16:00:00+00:00 - User: AnonymousUser - Path: /api/messages/ 
+
+Forbidden: /api/messages/
+2025-06-07 13:57:12.643760 - User: AnonymousUser - Path: /api/ 
+
+Forbidden: /api/
+2025-06-07 13:57:21.592815 - User: AnonymousUser - Path: /api/ 
+
+Forbidden: /api/
+2025-06-07 13:57:24.339595 - User: AnonymousUser - Path: /api/ 
+
+Forbidden: /api/
+2025-06-07 13:57:34.229112 - User: AnonymousUser - Path: /api/ 
+
+Forbidden: /api/
+2025-06-07 13:57:41.525411 - User: AnonymousUser - Path: /api/ 
+
+Forbidden: /api/
