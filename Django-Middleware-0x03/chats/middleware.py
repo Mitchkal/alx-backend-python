@@ -118,7 +118,7 @@ class OffensiveLanguageMiddleware:
         return response
 
 
-class RolePermissionMiddleware:
+class RolepermissionMiddleware:
     """
     midleware to restrict access for roles
     """
