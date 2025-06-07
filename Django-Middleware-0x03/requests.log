@@ -9,3 +9,62 @@
 2025-06-07 11:05:51.074490 - User: numbskull@gmail.com - Path: /api/messages/ 
 2025-06-07 11:09:57.920446 - User: numbskull@gmail.com - Path: /api/messages/ 
 2025-06-07 11:10:15.824356 - User: AnonymousUser - Path: /api/message/ 
+2025-06-07 12:24:29.839482 - User: AnonymousUser - Path: /api/message/ 
+
+Not Found: /api/message/
+2025-06-07 12:24:48.647978 - User: AnonymousUser - Path: /api/messages/ 
+
+Forbidden: /api/messages/
+2025-06-07 12:26:04.495978 - User: AnonymousUser - Path: /api/messages/ 
+
+Forbidden: /api/messages/
+2025-06-07 12:26:20.278575 - User: AnonymousUser - Path: /api/token/ 
+
+2025-06-07 12:26:44.196583 - User: AnonymousUser - Path: /api/messages/ 
+
+2025-06-07 12:26:53.220424 - User: AnonymousUser - Path: /api/messages/ 
+
+2025-06-07 12:27:27.166829 - User: AnonymousUser - Path: /api/messages/ 
+
+/home/mitchell/alx-backend-python/Django-Middleware-0x03/chats/middleware.py changed, reloading.
+2025-06-07 12:27:55.082299 - User: AnonymousUser - Path: /api/messages/ 
+
+2025-06-07 12:28:47.489364 - User: AnonymousUser - Path: /api/conversations/ 
+
+2025-06-07 12:30:30.066478 - User: AnonymousUser - Path: /api/conversations/ 
+
+2025-06-07 12:31:00.176702 - User: AnonymousUser - Path: /api/ 
+
+2025-06-07 12:31:24.259263 - User: AnonymousUser - Path: /api/ 
+
+Forbidden: /api/
+2025-06-07 12:31:39.354217 - User: AnonymousUser - Path: /api/ 
+
+Forbidden: /api/
+2025-06-07 12:31:48.800255 - User: AnonymousUser - Path: /api/ 
+
+/home/mitchell/alx-backend-python/Django-Middleware-0x03/chats/middleware.py changed, reloading.
+2025-06-07 12:32:54.169871 - User: AnonymousUser - Path: /api/ 
+
+/home/mitchell/alx-backend-python/Django-Middleware-0x03/chats/middleware.py changed, reloading.
+2025-06-07 12:33:55.067753 - User: numbskull@gmail.com - Path: /api/ 
+
+2025-06-07 12:34:31.855672 - User: numbskull@gmail.com - Path: /api/ 
+
+2025-06-07 12:34:33.125300 - User: numbskull@gmail.com - Path: /api/ 
+
+2025-06-07 12:34:45.520686 - User: AnonymousUser - Path: /api/ 
+
+Forbidden: /api/
+2025-06-07 12:35:12.459300 - User: AnonymousUser - Path: /api/ 
+
+Forbidden: /api/
+/home/mitchell/alx-backend-python/Django-Middleware-0x03/chats/middleware.py changed, reloading.
+2025-06-07 12:36:32.557565 - User: AnonymousUser - Path: /api/ 
+
+Forbidden: /api/
+2025-06-07 12:36:53.911945 - User: AnonymousUser - Path: /api/ 
+
+Forbidden: /api/
+2025-06-07 12:37:31.480832 - User: numbskull@gmail.com - Path: /api/ 
+
