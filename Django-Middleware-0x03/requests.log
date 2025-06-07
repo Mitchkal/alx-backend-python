@@ -123,3 +123,48 @@ Forbidden: /api/
 2025-06-07 13:57:41.525411 - User: AnonymousUser - Path: /api/ 
 
 Forbidden: /api/
+/home/mitchell/alx-backend-python/Django-Middleware-0x03/messaging_app/settings.py changed, reloading.
+2025-06-07 17:00:00+00:00 - User: AnonymousUser - Path: /api/messages/ 
+
+Forbidden: /api/messages/
+2025-06-07 17:00:00+00:00 - User: AnonymousUser - Path: /api/messages/ 
+
+Forbidden: /api/messages/
+2025-06-07 14:38:50.178666 - User: AnonymousUser - Path: /api/messages/ 
+
+Forbidden: /api/messages/
+2025-06-07 14:38:50.181359 - User: AnonymousUser - Path: /api/messages/ 
+
+Forbidden: /api/messages/
+2025-06-07 14:38:50.183497 - User: AnonymousUser - Path: /api/messages/ 
+
+Forbidden: /api/messages/
+2025-06-07 14:38:50.185182 - User: AnonymousUser - Path: /api/messages/ 
+
+Forbidden: /api/messages/
+2025-06-07 14:38:50.186641 - User: AnonymousUser - Path: /api/messages/ 
+
+Forbidden: /api/messages/
+2025-06-07 14:38:50.188718 - User: AnonymousUser - Path: /api/messages/ 
+
+Forbidden: /api/messages/
+2025-06-07 14:38:50.190523 - User: AnonymousUser - Path: /api/messages/ 
+
+Forbidden: /api/messages/
+2025-06-07 14:38:50.192176 - User: AnonymousUser - Path: /api/messages/ 
+
+Forbidden: /api/messages/
+2025-06-07 14:38:50.193822 - User: AnonymousUser - Path: /api/messages/ 
+
+Forbidden: /api/messages/
+2025-06-07 14:38:50.195358 - User: AnonymousUser - Path: /api/messages/ 
+
+Forbidden: /api/messages/
+2025-06-07 19:00:00+00:00 - User: numbskull@gmail.com - Path: /api/messages/ 
+
+2025-06-07 16:00:00+00:00 - User: AnonymousUser - Path: /api/messages/ 
+
+Forbidden: /api/messages/
+2025-06-07 16:00:00+00:00 - User: AnonymousUser - Path: /api/messages/ 
+
+Forbidden: /api/messages/
