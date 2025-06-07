@@ -142,39 +142,6 @@ class ConversationViewSet(viewsets.ModelViewSet):
         serializer = MessageSerializer(messages, many=True)
         return Response(serializer.data)
 
-    # def create(self, request, *args, **kwargs):
-    #     """
-    #     creates a convesration
-    #     request: HTTP request with participant IDS in the 'participants
-    #     field
-    #     Returns a serialized conversation with HTTP 201 status on success
-    #     or error message with HTTP 400 status for failure
-    #     """
-
-    #     serializer = self.get_serializer(
-    #         data=request.data, context={"request": request}
-    #     )
-    #     serializer.is_valid(raise_exception=True)
-    #     try:
-    #         conversation = serializer.save()
-    #         print("saved conversation", conversation)
-    #         return Response(serializer.data, status=status.HTTP_201_CREATED)
-    #     except ValueError as e:  # Handle duplicate conversation error from model
-    #         existing = (
-    #             Conversation.objects.filter(
-    #                 participants__user_id__in=serializer.validated_data[
-    #                     "participant_ids"
-    #                 ]
-    #             )
-    #             .annotate(num_participants=Count("participants"))
-    #             .filter(num_participants=2)
-    #             .first()
-    #         )
-    #         if existing:
-    #             serializer = self.get_serializer(existing, context={"request": request})
-    #             return Response(serializer.data, status=status.HTTP_200_OK)
-    #         raise serializer.ValidationError(str(e))
-
 
 class MessageViewSet(viewsets.ModelViewSet):
     """
@@ -228,28 +195,3 @@ class MessageViewSet(viewsets.ModelViewSet):
         message.conversation.last_message = message
         message.conversation.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
-
-    # def create(self, request, *args, **kwargs):
-    #     """
-    #     creates a new message in a conversation
-    #     request: contains message data(conversation, message_body,
-    #     message_type, optional attachment)
-    #     Automatically sets sender to requesting user
-    #     Returns a serialized message object with HTTP 201 status for success
-    #     or error message with HTTP 403/400 status on failure
-    #     """
-    #     serializer = self.get_serializer(
-    #         data=request.data, context={"request": request}
-    #     )
-    #     serializer.is_valid(raise_exception=True)
-
-    #     # Ensure sender is the requesting user
-    #     if serializer.validated_data["sender"] != request.user:
-    #         return Response(
-    #             {"error": "Sender must be the requesting user."},
-    #             status=status.HTTP_403_FORBIDDEN,
-    #         )
-
-    #     message = serializer.save()
-    #     print("saved message", message)
-    #     return Response(serializer.data, status=status.HTTP_201_CREATED)
