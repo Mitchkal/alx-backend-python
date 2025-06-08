@@ -1,1 +1,1 @@
-Duplicate directory with chats folder
+# Folder duplication
