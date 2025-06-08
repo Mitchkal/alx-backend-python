@@ -1,0 +1,336 @@
+{
+	"info": {
+		"_postman_id": "4debf1b6-44c7-4ef0-83cd-6436730955a6",
+		"name": "post_man-Collections",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "45717664",
+		"_collection_link": "https://mitchkal.postman.co/workspace/mitchkal's-Workspace~1dce27c4-0eb5-4abe-885b-126010d9eba7/collection/45717664-4debf1b6-44c7-4ef0-83cd-6436730955a6?action=share&source=collection_link&creator=45717664"
+	},
+	"item": [
+		{
+			"name": "http://127.0.0.1:5000/api/",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5MzAyNzgxLCJpYXQiOjE3NDkyOTkxODEsImp0aSI6ImJiMDJkMTY0NjBiNzQ2NzBhMjIxYzNjYjU4NmY3NjhhIiwidXNlcl9pZCI6IjAzZDBjNzNjLTk1MjAtNDUwZi05M2FkLWNiZmU0MTgzMDE1ZiJ9.jTYPEpF-EfCbm5e2d0o49QaA45d6CSNByzBW28qPexE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:5000/api/conversations/",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5MzAyNzgxLCJpYXQiOjE3NDkyOTkxODEsImp0aSI6ImJiMDJkMTY0NjBiNzQ2NzBhMjIxYzNjYjU4NmY3NjhhIiwidXNlcl9pZCI6IjAzZDBjNzNjLTk1MjAtNDUwZi05M2FkLWNiZmU0MTgzMDE1ZiJ9.jTYPEpF-EfCbm5e2d0o49QaA45d6CSNByzBW28qPexE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/conversations/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"conversations",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:5000/api/messages/",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5MzAyNzgxLCJpYXQiOjE3NDkyOTkxODEsImp0aSI6ImJiMDJkMTY0NjBiNzQ2NzBhMjIxYzNjYjU4NmY3NjhhIiwidXNlcl9pZCI6IjAzZDBjNzNjLTk1MjAtNDUwZi05M2FkLWNiZmU0MTgzMDE1ZiJ9.jTYPEpF-EfCbm5e2d0o49QaA45d6CSNByzBW28qPexE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/messages/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"messages",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:5000/api/messages/",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5Mjk3MTQwLCJpYXQiOjE3NDkyOTM1NDAsImp0aSI6ImEyNzAwNzgxZDNhNTQxYjY5YjVjNDEyMmM5ZGFiY2I5IiwidXNlcl9pZCI6IjAzZDBjNzNjLTk1MjAtNDUwZi05M2FkLWNiZmU0MTgzMDE1ZiJ9.bZukZ-3ETYF4MLujr7foekdVf2DMWDZbcFsh2VOxE4M",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/messages/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"messages",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:5000/api/message/",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5Mjk3MTQwLCJpYXQiOjE3NDkyOTM1NDAsImp0aSI6ImEyNzAwNzgxZDNhNTQxYjY5YjVjNDEyMmM5ZGFiY2I5IiwidXNlcl9pZCI6IjAzZDBjNzNjLTk1MjAtNDUwZi05M2FkLWNiZmU0MTgzMDE1ZiJ9.bZukZ-3ETYF4MLujr7foekdVf2DMWDZbcFsh2VOxE4M",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/message/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"message",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:5000/api/messages/",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5Mjk3MTQwLCJpYXQiOjE3NDkyOTM1NDAsImp0aSI6ImEyNzAwNzgxZDNhNTQxYjY5YjVjNDEyMmM5ZGFiY2I5IiwidXNlcl9pZCI6IjAzZDBjNzNjLTk1MjAtNDUwZi05M2FkLWNiZmU0MTgzMDE1ZiJ9.bZukZ-3ETYF4MLujr7foekdVf2DMWDZbcFsh2VOxE4M",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/messages/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"messages",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:5000/api/",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5MzAyNzgxLCJpYXQiOjE3NDkyOTkxODEsImp0aSI6ImJiMDJkMTY0NjBiNzQ2NzBhMjIxYzNjYjU4NmY3NjhhIiwidXNlcl9pZCI6IjAzZDBjNzNjLTk1MjAtNDUwZi05M2FkLWNiZmU0MTgzMDE1ZiJ9.jTYPEpF-EfCbm5e2d0o49QaA45d6CSNByzBW28qPexE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:5000/api/",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5MzAyNzgxLCJpYXQiOjE3NDkyOTkxODEsImp0aSI6ImJiMDJkMTY0NjBiNzQ2NzBhMjIxYzNjYjU4NmY3NjhhIiwidXNlcl9pZCI6IjAzZDBjNzNjLTk1MjAtNDUwZi05M2FkLWNiZmU0MTgzMDE1ZiJ9.jTYPEpF-EfCbm5e2d0o49QaA45d6CSNByzBW28qPexE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
