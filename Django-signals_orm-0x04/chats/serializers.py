@@ -7,7 +7,7 @@ JSON into model nstances when creating or udating data
 """
 import re
 from rest_framework import serializers
-from .models import User, Message, Conversation, Notification
+from .models import User, Message, Conversation, Notification, MessageHistory
 import logging
 
 
@@ -126,7 +126,13 @@ class MessageSerializer(serializers.ModelSerializer):
             "message_type",
             "attachment",
             "read_by",
+            "parent_message",
+            "replies",
         ]
+        read_only_fields = ["sender", "timestamp", "replies"]
+
+    def get_replies(self, obj):
+        return MessageSerializer(obj.replies.all(), many=True).data
 
     def create(self, validated_data):
         """
@@ -150,7 +156,7 @@ class MessageSerializer(serializers.ModelSerializer):
                     "non_field_errors": "Invalid data. Expected a dictionary, but got list."
                 }
             )
-        conversation = data.get("conversation", {}).get("conversation_id")
+        conversation = data.get("conversations", {}).get("conversation_id")
         receiver = data.get("receiver")
         message_type = data.get("message_type", "TEXT")
         attachment = data.get("attachment")
@@ -277,3 +283,16 @@ class NotificationSerializer(serializers.ModelSerializer):
         model = Notification
         fields = ["id", "user", "message", "created_at", "is_read", "notification_type"]
         read_only_fields = ["created_at", "user", "message", "notification_type"]
+
+
+class MessageHistorySerializer(serializers.ModelSerializer):
+    """
+    serializer for message history model
+    """
+
+    edited_by = LightUserSerializer(read_only=True)
+
+    class Meta:
+        model = MessageHistory
+        fields = ["old_content", "edited_by", "edited_at"]
+        read_only_fields = ["old_content", "edited_by", "edited_at"]

@@ -1219,3 +1219,790 @@ Forbidden: /api/messages/0b2c885f-b3a3-4001-90d2-126cb89a99bf/
 2025-06-12 19:00:00+00:00 - User: AnonymousUser - Path: /api/messages/f9849a17-e9a1-4243-8ad8-ab2ed3dc7467/
 Forbidden: /api/messages/f9849a17-e9a1-4243-8ad8-ab2ed3dc7467/
 2025-06-12 19:00:00+00:00 - User: AnonymousUser - Path: /
+2025-06-13 11:10:58.842571 - User: numbskull@gmail.com - Path: /
+Forbidden: /
+2025-06-13 11:10:59.680475 - User: numbskull@gmail.com - Path: /
+Forbidden: /
+/home/mitchell/alx-backend-python/Django-signals_orm-0x04/chats/middleware.py changed, reloading.
+2025-06-13 11:11:33.399857 - User: numbskull@gmail.com - Path: /
+2025-06-13 11:11:39.456004 - User: numbskull@gmail.com - Path: /api/
+2025-06-13 11:14:30.482032 - User: AnonymousUser - Path: /api/token/
+Unauthorized: /api/token/
+2025-06-13 11:20:45.416382 - User: AnonymousUser - Path: /api/token/
+2025-06-13 11:27:02.450898 - User: user1@example.com - Path: /api/
+Internal Server Error: /api/conversations/
+Traceback (most recent call last):
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/mixins.py", line 43, in list
+    return self.get_paginated_response(serializer.data)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/serializers.py", line 797, in data
+    ret = super().data
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/serializers.py", line 251, in data
+    self._data = self.to_representation(self.instance)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/serializers.py", line 715, in to_representation
+    return [
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/serializers.py", line 716, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/serializers.py", line 540, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/fields.py", line 1870, in to_representation
+    return method(value)
+  File "/home/mitchell/alx-backend-python/Django-signals_orm-0x04/chats/serializers.py", line 247, in get_last_message
+    last_message = obj.last_message()
+  File "/home/mitchell/alx-backend-python/Django-signals_orm-0x04/chats/models.py", line 92, in last_message
+    return self.messages.order_by("-sent_at").first() or None
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/query.py", line 1718, in order_by
+    obj.query.add_ordering(*field_names)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/sql/query.py", line 2288, in add_ordering
+    self.names_to_path(item.split(LOOKUP_SEP), self.model._meta)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1802, in names_to_path
+    raise FieldError(
+django.core.exceptions.FieldError: Cannot resolve keyword 'sent_at' into field. Choices are: attachment, content, conversation, conversation_id, edited, edited_at, message_id, message_type, messagehistory, notifications, read_by, receiver, receiver_id, sender, sender_id, timestamp
+2025-06-13 11:27:37.408047 - User: user1@example.com - Path: /api/conversations/
+/home/mitchell/alx-backend-python/Django-signals_orm-0x04/chats/models.py changed, reloading.
+2025-06-13 11:30:23.612038 - User: user1@example.com - Path: /api/conversations/
+2025-06-13 11:30:56.569993 - User: user1@example.com - Path: /api/messages/
+2025-06-13 11:31:53.649677 - User: user1@example.com - Path: /api/
+2025-06-13 11:32:02.447225 - User: user1@example.com - Path: /api/notifications/
+2025-06-13 11:32:34.794046 - User: numbskull@gmail.com - Path: /api/notifications/
+Internal Server Error: /api/notifications/
+Traceback (most recent call last):
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/backends/sqlite3/base.py", line 360, in execute
+    return super().execute(query, params)
+sqlite3.IntegrityError: NOT NULL constraint failed: chats_notification.message_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/mixins.py", line 24, in perform_create
+    serializer.save()
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/serializers.py", line 210, in save
+    self.instance = self.create(validated_data)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/serializers.py", line 991, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/query.py", line 663, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/base.py", line 902, in save
+    self.save_base(
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/base.py", line 1008, in save_base
+    updated = self._save_table(
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/base.py", line 1169, in _save_table
+    results = self._do_insert(
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/base.py", line 1210, in _do_insert
+    return manager._insert(
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/query.py", line 1864, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1882, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/backends/sqlite3/base.py", line 360, in execute
+    return super().execute(query, params)
+django.db.utils.IntegrityError: NOT NULL constraint failed: chats_notification.message_id
+2025-06-13 11:32:42.444405 - User: numbskull@gmail.com - Path: /api/notifications/
+Internal Server Error: /api/notifications/
+Traceback (most recent call last):
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/backends/sqlite3/base.py", line 360, in execute
+    return super().execute(query, params)
+sqlite3.IntegrityError: NOT NULL constraint failed: chats_notification.message_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/mixins.py", line 24, in perform_create
+    serializer.save()
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/serializers.py", line 210, in save
+    self.instance = self.create(validated_data)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/serializers.py", line 991, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/query.py", line 663, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/base.py", line 902, in save
+    self.save_base(
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/base.py", line 1008, in save_base
+    updated = self._save_table(
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/base.py", line 1169, in _save_table
+    results = self._do_insert(
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/base.py", line 1210, in _do_insert
+    return manager._insert(
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/query.py", line 1864, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1882, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/backends/sqlite3/base.py", line 360, in execute
+    return super().execute(query, params)
+django.db.utils.IntegrityError: NOT NULL constraint failed: chats_notification.message_id
+2025-06-13 11:33:24.281961 - User: numbskull@gmail.com - Path: /api/notifications/
+2025-06-13 11:33:55.188417 - User: numbskull@gmail.com - Path: /api/
+2025-06-13 11:34:02.341241 - User: numbskull@gmail.com - Path: /api/users
+2025-06-13 11:34:02.548408 - User: numbskull@gmail.com - Path: /api/users/
+2025-06-13 11:35:06.862180 - User: numbskull@gmail.com - Path: /api/users/
+Bad Request: /api/users/
+2025-06-13 11:35:59.436910 - User: numbskull@gmail.com - Path: /api/users/
+2025-06-13 11:36:18.218439 - User: numbskull@gmail.com - Path: /api/
+No conversation_id in request.data
+No conversation_id in request.data
+2025-06-13 11:36:25.882404 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-13 11:36:40.112975 - User: numbskull@gmail.com - Path: /api/
+No conversation_id in request.data
+No conversation_id in request.data
+2025-06-13 11:37:05.084641 - User: numbskull@gmail.com - Path: /api/conversations/
+2025-06-13 11:37:23.129796 - User: numbskull@gmail.com - Path: /api/
+2025-06-13 11:37:29.833972 - User: AnonymousUser - Path: /api-auth/logout/
+2025-06-13 11:37:29.861217 - User: AnonymousUser - Path: /api/
+Forbidden: /api/
+2025-06-13 11:37:33.366201 - User: AnonymousUser - Path: /api/
+Forbidden: /api/
+2025-06-13 11:37:35.030344 - User: AnonymousUser - Path: /api/
+Forbidden: /api/
+2025-06-13 11:37:36.335680 - User: AnonymousUser - Path: /api/
+Forbidden: /api/
+2025-06-13 11:37:37.440484 - User: AnonymousUser - Path: /api/
+Forbidden: /api/
+2025-06-13 11:37:47.158290 - User: AnonymousUser - Path: /
+2025-06-13 11:37:53.195984 - User: AnonymousUser - Path: /auth
+Not Found: /auth
+2025-06-13 11:38:12.979827 - User: AnonymousUser - Path: /api-auth/login/
+2025-06-13 11:38:43.402201 - User: AnonymousUser - Path: /api-auth/login/
+2025-06-13 11:39:03.249710 - User: laporte@gmail.com - Path: /api-auth/login/
+2025-06-13 11:39:03.308867 - User: laporte@gmail.com - Path: /api/
+No conversation_id in request.data
+No conversation_id in request.data
+2025-06-13 11:39:28.715542 - User: laporte@gmail.com - Path: /api/conversations/
+Internal Server Error: /api/users/
+Traceback (most recent call last):
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/mixins.py", line 38, in list
+    queryset = self.filter_queryset(self.get_queryset())
+  File "/home/mitchell/alx-backend-python/Django-signals_orm-0x04/chats/views.py", line 51, in get_queryset
+    self.queryset.filter(conversation__participants=user)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/query.py", line 1491, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/query.py", line 1509, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/query.py", line 1516, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1643, in add_q
+    clause, _ = self._add_q(q_object, can_reuse)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1675, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1523, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1330, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1802, in names_to_path
+    raise FieldError(
+django.core.exceptions.FieldError: Cannot resolve keyword 'conversation' into field. Choices are: conversations, date_joined, email, first_name, groups, is_active, is_staff, is_superuser, last_login, last_name, logentry, message, message_edits, notifications, password, profile_picture, read_messages, receiver, status, user_id, user_permissions, username
+2025-06-13 11:39:44.565124 - User: laporte@gmail.com - Path: /api/users/
+/home/mitchell/alx-backend-python/Django-signals_orm-0x04/chats/serializers.py changed, reloading.
+Internal Server Error: /api/users/
+Traceback (most recent call last):
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/mixins.py", line 38, in list
+    queryset = self.filter_queryset(self.get_queryset())
+  File "/home/mitchell/alx-backend-python/Django-signals_orm-0x04/chats/views.py", line 51, in get_queryset
+    self.queryset.filter(conversation__participants=user)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/query.py", line 1491, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/query.py", line 1509, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/query.py", line 1516, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1643, in add_q
+    clause, _ = self._add_q(q_object, can_reuse)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1675, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1523, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1330, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1802, in names_to_path
+    raise FieldError(
+django.core.exceptions.FieldError: Cannot resolve keyword 'conversation' into field. Choices are: conversations, date_joined, email, first_name, groups, is_active, is_staff, is_superuser, last_login, last_name, logentry, message, message_edits, notifications, password, profile_picture, read_messages, receiver, status, user_id, user_permissions, username
+2025-06-13 11:41:36.351548 - User: laporte@gmail.com - Path: /api/users/
+/home/mitchell/alx-backend-python/Django-signals_orm-0x04/chats/serializers.py changed, reloading.
+/home/mitchell/alx-backend-python/Django-signals_orm-0x04/chats/views.py changed, reloading.
+Internal Server Error: /api/users/
+Traceback (most recent call last):
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/mixins.py", line 38, in list
+    queryset = self.filter_queryset(self.get_queryset())
+  File "/home/mitchell/alx-backend-python/Django-signals_orm-0x04/chats/views.py", line 51, in get_queryset
+    self.queryset.filter(conversation__participants=user)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/query.py", line 1491, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/query.py", line 1509, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/query.py", line 1516, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1643, in add_q
+    clause, _ = self._add_q(q_object, can_reuse)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1675, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1523, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1330, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1802, in names_to_path
+    raise FieldError(
+django.core.exceptions.FieldError: Cannot resolve keyword 'conversation' into field. Choices are: conversations, date_joined, email, first_name, groups, is_active, is_staff, is_superuser, last_login, last_name, logentry, message, message_edits, notifications, password, profile_picture, read_messages, receiver, status, user_id, user_permissions, username
+2025-06-13 11:45:35.553071 - User: laporte@gmail.com - Path: /api/users/
+/home/mitchell/alx-backend-python/Django-signals_orm-0x04/chats/views.py changed, reloading.
+Internal Server Error: /api/users/
+Traceback (most recent call last):
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/mixins.py", line 38, in list
+    queryset = self.filter_queryset(self.get_queryset())
+  File "/home/mitchell/alx-backend-python/Django-signals_orm-0x04/chats/views.py", line 51, in get_queryset
+    self.queryset.filter(conversation__participants=user)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/query.py", line 1491, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/query.py", line 1509, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/query.py", line 1516, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1643, in add_q
+    clause, _ = self._add_q(q_object, can_reuse)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1675, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1523, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1330, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1802, in names_to_path
+    raise FieldError(
+django.core.exceptions.FieldError: Cannot resolve keyword 'conversation' into field. Choices are: conversations, date_joined, email, first_name, groups, is_active, is_staff, is_superuser, last_login, last_name, logentry, message, message_edits, notifications, password, profile_picture, read_messages, receiver, status, user_id, user_permissions, username
+2025-06-13 11:46:30.235791 - User: laporte@gmail.com - Path: /api/users/
+Internal Server Error: /api/users/
+Traceback (most recent call last):
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/mixins.py", line 38, in list
+    queryset = self.filter_queryset(self.get_queryset())
+  File "/home/mitchell/alx-backend-python/Django-signals_orm-0x04/chats/views.py", line 51, in get_queryset
+    self.queryset.filter(conversation__participants=user)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/query.py", line 1491, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/query.py", line 1509, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/query.py", line 1516, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1643, in add_q
+    clause, _ = self._add_q(q_object, can_reuse)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1675, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1523, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1330, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1802, in names_to_path
+    raise FieldError(
+django.core.exceptions.FieldError: Cannot resolve keyword 'conversation' into field. Choices are: conversations, date_joined, email, first_name, groups, is_active, is_staff, is_superuser, last_login, last_name, logentry, message, message_edits, notifications, password, profile_picture, read_messages, receiver, status, user_id, user_permissions, username
+2025-06-13 11:47:25.436682 - User: user1@example.com - Path: /api/users/
+/home/mitchell/alx-backend-python/Django-signals_orm-0x04/chats/views.py changed, reloading.
+Internal Server Error: /api/users/
+Traceback (most recent call last):
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/mixins.py", line 38, in list
+    queryset = self.filter_queryset(self.get_queryset())
+  File "/home/mitchell/alx-backend-python/Django-signals_orm-0x04/chats/views.py", line 55, in get_queryset
+    return User.objects.filter(
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/query.py", line 1491, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/query.py", line 1509, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/query.py", line 1516, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1643, in add_q
+    clause, _ = self._add_q(q_object, can_reuse)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1675, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1560, in build_filter
+    self.check_related_objects(join_info.final_field, value, join_info.opts)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1364, in check_related_objects
+    raise ValueError(
+ValueError: Cannot use QuerySet for "User": Use a QuerySet for "Conversation".
+2025-06-13 11:48:40.066411 - User: laporte@gmail.com - Path: /api/users/
+/home/mitchell/alx-backend-python/Django-signals_orm-0x04/chats/views.py changed, reloading.
+Internal Server Error: /api/users/
+Traceback (most recent call last):
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/mixins.py", line 38, in list
+    queryset = self.filter_queryset(self.get_queryset())
+  File "/home/mitchell/alx-backend-python/Django-signals_orm-0x04/chats/views.py", line 55, in get_queryset
+    return User.objects.filter(conversation__in=shared_conversations).distinct()
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/query.py", line 1491, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/query.py", line 1509, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/query.py", line 1516, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1643, in add_q
+    clause, _ = self._add_q(q_object, can_reuse)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1675, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1523, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1330, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1802, in names_to_path
+    raise FieldError(
+django.core.exceptions.FieldError: Cannot resolve keyword 'conversation' into field. Choices are: conversations, date_joined, email, first_name, groups, is_active, is_staff, is_superuser, last_login, last_name, logentry, message, message_edits, notifications, password, profile_picture, read_messages, receiver, status, user_id, user_permissions, username
+2025-06-13 11:49:54.663581 - User: laporte@gmail.com - Path: /api/users/
+/home/mitchell/alx-backend-python/Django-signals_orm-0x04/chats/views.py changed, reloading.
+/home/mitchell/alx-backend-python/Django-signals_orm-0x04/chats/views.py changed, reloading.
+Internal Server Error: /api/users/
+Traceback (most recent call last):
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/mixins.py", line 38, in list
+    queryset = self.filter_queryset(self.get_queryset())
+  File "/home/mitchell/alx-backend-python/Django-signals_orm-0x04/chats/views.py", line 55, in get_queryset
+    return User.objects.filter(
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/query.py", line 1491, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/query.py", line 1509, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/query.py", line 1516, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1643, in add_q
+    clause, _ = self._add_q(q_object, can_reuse)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1675, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1560, in build_filter
+    self.check_related_objects(join_info.final_field, value, join_info.opts)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1364, in check_related_objects
+    raise ValueError(
+ValueError: Cannot use QuerySet for "User": Use a QuerySet for "Conversation".
+2025-06-13 11:55:40.087814 - User: laporte@gmail.com - Path: /api/users/
+/home/mitchell/alx-backend-python/Django-signals_orm-0x04/chats/views.py changed, reloading.
+2025-06-13 11:56:57.832743 - User: laporte@gmail.com - Path: /api/users/
+2025-06-13 11:58:08.065544 - User: laporte@gmail.com - Path: /api/users/
+2025-06-13 11:59:22.955274 - User: AnonymousUser - Path: /api/users/
+Bad Request: /api/users/
+2025-06-13 11:59:34.621374 - User: laporte@gmail.com - Path: /api/users/
+2025-06-13 12:00:28.317611 - User: laporte@gmail.com - Path: /api/users/
+No conversation_id in request.data
+No conversation_id in request.data
+2025-06-13 12:00:43.627345 - User: laporte@gmail.com - Path: /api/conversations/
+Internal Server Error: /api/messages/
+Traceback (most recent call last):
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/mixins.py", line 40, in list
+    page = self.paginate_queryset(queryset)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/generics.py", line 175, in paginate_queryset
+    return self.paginator.paginate_queryset(queryset, self.request, view=self)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/pagination.py", line 222, in paginate_queryset
+    return list(self.page)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/core/paginator.py", line 191, in __len__
+    return len(self.object_list)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/query.py", line 366, in __len__
+    self._fetch_all()
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/query.py", line 1945, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1610, in execute_sql
+    sql, params = self.as_sql()
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 766, in as_sql
+    extra_select, order_by, group_by = self.pre_sql_setup(
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 85, in pre_sql_setup
+    self.setup_query(with_col_aliases=with_col_aliases)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 74, in setup_query
+    self.select, self.klass_info, self.annotation_col_map = self.get_select(
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 299, in get_select
+    related_klass_infos = self.get_related_selections(select, select_mask)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1396, in get_related_selections
+    raise FieldError(
+django.core.exceptions.FieldError: Invalid field name(s) given in select_related: 'conversations'. Choices are: conversation, sender, receiver
+2025-06-13 12:01:00.665344 - User: laporte@gmail.com - Path: /api/messages/
+/home/mitchell/alx-backend-python/Django-signals_orm-0x04/chats/views.py changed, reloading.
+No conversation_id in request.data
+No conversation_id in request.data
+2025-06-13 12:05:35.431942 - User: laporte@gmail.com - Path: /api/messages/
+No conversation_id in request.data
+No conversation_id in request.data
+2025-06-13 12:05:47.764156 - User: laporte@gmail.com - Path: /api/messages/
+2025-06-13 12:05:50.428642 - User: laporte@gmail.com - Path: /api/
+2025-06-13 12:06:02.693633 - User: laporte@gmail.com - Path: /api/notifications/
+/home/mitchell/alx-backend-python/Django-signals_orm-0x04/chats/views.py changed, reloading.
+/home/mitchell/alx-backend-python/Django-signals_orm-0x04/chats/urls.py changed, reloading.
+/home/mitchell/alx-backend-python/Django-signals_orm-0x04/messaging_app/urls.py changed, reloading.
+/home/mitchell/alx-backend-python/Django-signals_orm-0x04/messaging_app/urls.py changed, reloading.
+/home/mitchell/alx-backend-python/Django-signals_orm-0x04/chats/signals.py changed, reloading.
+/home/mitchell/alx-backend-python/Django-signals_orm-0x04/chats/signals.py changed, reloading.
+/home/mitchell/alx-backend-python/Django-signals_orm-0x04/chats/signals.py changed, reloading.
+/home/mitchell/alx-backend-python/Django-signals_orm-0x04/chats/signals.py changed, reloading.
+/home/mitchell/alx-backend-python/Django-signals_orm-0x04/chats/signals.py changed, reloading.
+/home/mitchell/alx-backend-python/Django-signals_orm-0x04/chats/models.py changed, reloading.
+/home/mitchell/alx-backend-python/Django-signals_orm-0x04/chats/models.py changed, reloading.
+/home/mitchell/alx-backend-python/Django-signals_orm-0x04/chats/models.py changed, reloading.
+/home/mitchell/alx-backend-python/Django-signals_orm-0x04/chats/models.py changed, reloading.
+2025-06-13 12:47:21.516001 - User: laporte@gmail.com - Path: /api/notifications/
+2025-06-13 12:47:24.934699 - User: laporte@gmail.com - Path: /api/notifications/
+2025-06-13 12:47:27.305333 - User: laporte@gmail.com - Path: /api/notifications/
+2025-06-13 12:47:29.759430 - User: laporte@gmail.com - Path: /api/
+2025-06-13 12:47:37.815527 - User: AnonymousUser - Path: /api-auth/logout/
+2025-06-13 12:47:37.844695 - User: AnonymousUser - Path: /api/
+Forbidden: /api/
+2025-06-13 12:47:40.434530 - User: AnonymousUser - Path: /api-auth/login/
+2025-06-13 12:47:58.054519 - User: laporte@gmail.com - Path: /api-auth/login/
+2025-06-13 12:47:58.122690 - User: laporte@gmail.com - Path: /api/
+2025-06-13 12:48:15.163430 - User: laporte@gmail.com - Path: /api/
+2025-06-13 12:48:28.417323 - User: laporte@gmail.com - Path: /api/
+2025-06-13 12:48:32.993742 - User: laporte@gmail.com - Path: /api/
+2025-06-13 12:48:38.867344 - User: laporte@gmail.com - Path: /api/
+No conversation_id in request.data
+No conversation_id in request.data
+2025-06-13 12:48:44.600144 - User: laporte@gmail.com - Path: /api/messages/
+2025-06-13 12:48:51.762486 - User: laporte@gmail.com - Path: /api/
+No conversation_id in request.data
+No conversation_id in request.data
+2025-06-13 12:48:56.435456 - User: laporte@gmail.com - Path: /api/conversations/
+2025-06-13 12:49:25.785766 - User: AnonymousUser - Path: /api-auth/logout/
+2025-06-13 12:49:25.811193 - User: AnonymousUser - Path: /api/conversations/
+Forbidden: /api/conversations/
+2025-06-13 12:49:30.742498 - User: AnonymousUser - Path: /api-auth/login/
+2025-06-13 12:49:53.927520 - User: user1@example.com - Path: /api-auth/login/
+No conversation_id in request.data
+No conversation_id in request.data
+2025-06-13 12:49:54.210175 - User: user1@example.com - Path: /api/conversations/
+2025-06-13 12:50:18.990343 - User: user1@example.com - Path: /api/
+No conversation_id in request.data
+No conversation_id in request.data
+2025-06-13 12:50:23.591917 - User: user1@example.com - Path: /api/messages/
+2025-06-13 12:50:30.311507 - User: AnonymousUser - Path: /api-auth/logout/
+2025-06-13 12:50:30.349939 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 12:50:35.936210 - User: AnonymousUser - Path: /api-auth/login/
+2025-06-13 12:51:05.748597 - User: user2@example.com - Path: /api-auth/login/
+No conversation_id in request.data
+No conversation_id in request.data
+2025-06-13 12:51:05.825474 - User: user2@example.com - Path: /api/messages/
+2025-06-13 12:51:17.538318 - User: user2@example.com - Path: /api/
+No conversation_id in request.data
+No conversation_id in request.data
+2025-06-13 12:51:22.236314 - User: user2@example.com - Path: /api/conversations/
+2025-06-13 12:53:28.727775 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 12:59:13.598443 - User: AnonymousUser - Path: /api/token/
+2025-06-13 12:59:41.306641 - User: user1@example.com - Path: /api/messages/
+2025-06-13 12:59:55.419946 - User: user1@example.com - Path: /api/conversations/
+2025-06-13 13:03:49.198722 - User: user1@example.com - Path: /api/messages/
+2025-06-13 13:03:59.146853 - User: user1@example.com - Path: /api/messages/
+2025-06-13 13:04:36.813237 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 13:05:17.047084 - User: user1@example.com - Path: /api/messages/
+2025-06-13 13:05:41.809452 - User: user1@example.com - Path: /api/conversations/
+2025-06-13 13:06:01.753550 - User: user1@example.com - Path: /api/messages/
+2025-06-13 13:06:19.861868 - User: user1@example.com - Path: /api/messages/
+2025-06-13 13:07:09.606023 - User: AnonymousUser - Path: /api/token/
+2025-06-13 13:07:59.068762 - User: user2@example.com - Path: /api/messages/
+2025-06-13 13:08:11.421992 - User: user2@example.com - Path: /api/conversations/
+2025-06-13 13:08:23.315401 - User: user2@example.com - Path: /api/messages/
+2025-06-13 13:08:33.191357 - User: user2@example.com - Path: /api/users/
+2025-06-13 13:09:01.930861 - User: user2@example.com - Path: /api/notifications/
+/home/mitchell/alx-backend-python/Django-signals_orm-0x04/messaging_app/urls.py changed, reloading.
+/home/mitchell/alx-backend-python/Django-signals_orm-0x04/chats/views.py changed, reloading.
+/home/mitchell/alx-backend-python/Django-signals_orm-0x04/messaging_app/urls.py changed, reloading.
+2025-06-13 13:12:12.114219 - User: user2@example.com - Path: /api/
+2025-06-13 13:12:13.354526 - User: user2@example.com - Path: /
+2025-06-13 13:12:25.694889 - User: user2@example.com - Path: /h
+Not Found: /h
+2025-06-13 13:12:48.637254 - User: user2@example.com - Path: /delete-account
+2025-06-13 13:12:48.680585 - User: user2@example.com - Path: /delete-account/
+Method Not Allowed: /delete-account/
+Internal Server Error: /delete-account/
+Traceback (most recent call last):
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+  File "/home/mitchell/alx-backend-python/Django-signals_orm-0x04/chats/views.py", line 226, in delete_user
+    user.delete()
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/base.py", line 1281, in delete
+    return collector.delete()
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/deletion.py", line 507, in delete
+    signals.post_delete.send(
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/dispatch/dispatcher.py", line 189, in send
+    response = receiver(signal=self, sender=sender, **named)
+  File "/home/mitchell/alx-backend-python/Django-signals_orm-0x04/chats/signals.py", line 92, in delete_related_user_data
+    MessageHistory.objects.filter(receiver=instance).delete()
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/query.py", line 1491, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/query.py", line 1509, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/query.py", line 1516, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1643, in add_q
+    clause, _ = self._add_q(q_object, can_reuse)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1675, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1523, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1330, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1802, in names_to_path
+    raise FieldError(
+django.core.exceptions.FieldError: Cannot resolve keyword 'receiver' into field. Choices are: edited_at, edited_by, edited_by_id, id, message, message_id, message_type, old_content
+2025-06-13 13:13:21.937921 - User: user2@example.com - Path: /delete-account/
+/home/mitchell/alx-backend-python/Django-signals_orm-0x04/chats/signals.py changed, reloading.
+2025-06-13 13:17:17.077726 - User: user2@example.com - Path: /delete-account/
+Method Not Allowed: /delete-account/
+2025-06-13 13:17:23.446281 - User: user2@example.com - Path: /delete-account/
+2025-06-13 13:17:32.661953 - User: AnonymousUser - Path: /delete-account/
+Forbidden: /delete-account/
+2025-06-13 13:17:40.461890 - User: AnonymousUser - Path: /api-auth/login/
+2025-06-13 13:18:37.730072 - User: AnonymousUser - Path: /api-auth/login/
+2025-06-13 13:18:52.861284 - User: AnonymousUser - Path: /api-auth/login/
+2025-06-13 13:19:04.668703 - User: user1@example.com - Path: /api-auth/login/
+2025-06-13 13:19:04.711687 - User: user1@example.com - Path: /delete-account/
+Method Not Allowed: /delete-account/
+2025-06-13 13:19:20.529384 - User: user1@example.com - Path: /
+/home/mitchell/alx-backend-python/Django-signals_orm-0x04/chats/models.py changed, reloading.
+/home/mitchell/alx-backend-python/Django-signals_orm-0x04/chats/models.py changed, reloading.
+/home/mitchell/alx-backend-python/Django-signals_orm-0x04/messaging_app/settings.py changed, reloading.
+/home/mitchell/alx-backend-python/Django-signals_orm-0x04/chats/views.py changed, reloading.
+/home/mitchell/alx-backend-python/Django-signals_orm-0x04/chats/views.py changed, reloading.

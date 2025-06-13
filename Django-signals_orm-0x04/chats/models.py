@@ -5,6 +5,7 @@ models file
 import uuid
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from .managers import MessageManager
 
 
 def generate_default_username():
@@ -89,7 +90,7 @@ class Conversation(models.Model):
         """
         display most recent message in conversation list
         """
-        return self.messages.order_by("-sent_at").first() or None
+        return self.messages.order_by("-timestamp").first() or None
 
     def __str__(self):
         """
@@ -108,7 +109,9 @@ class Message(models.Model):
     conversation = models.ForeignKey(
         Conversation, on_delete=models.CASCADE, related_name="messages"
     )
-    sender = models.ForeignKey(User, on_delete=models.CASCADE)
+    sender = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="sent_messages"
+    )
     # content renamed from message_body
     content = models.TextField()
     # timestamp renamed from sent_at
@@ -130,6 +133,10 @@ class Message(models.Model):
     receiver = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="receiver", blank=True, null=True
     )
+    parental_message = models.ForeignKey(
+        "self", null=True, blank=True, on_delete=models.CASCADE, related_name="replies"
+    )
+    objects = MessageManager()
 
     class Meta:
         indexes = [
@@ -156,30 +163,32 @@ class Message(models.Model):
         return f"{self.sender.username}, {self.edited}: {self.content[:20] if self.content else self.message_type}"
 
 
-# class MessageHistory(models.Model):
-#     """
-#     Models to store the message history
-#     """
+class MessageHistory(models.Model):
+    """
+    Models to store the message history
+    """
 
-#     message = models.ForeignKey(Message, on_delete=models.CASCADE)
-#     editor = models.ForeignKey(User, on_delete=models.CASCADE)
-#     content = models.TextField()
-#     edited_at = models.DateTimeField(auto_now=True)
-#     message_type = models.CharField(
-#         max_length=20,
-#         choices=[
-#             ("TEXT", "Text"),
-#             ("IMAGE", "Image"),
-#             ("FILE", "File"),
-#         ],
-#         default="TEXT",
-#     )
+    message = models.ForeignKey(Message, on_delete=models.CASCADE)
+    edited_by = models.ForeignKey(
+        User, on_delete=models.CASCADE, null=True, related_name="message_edits"
+    )
+    old_content = models.TextField()
+    edited_at = models.DateTimeField(auto_now=True)
+    message_type = models.CharField(
+        max_length=20,
+        choices=[
+            ("TEXT", "Text"),
+            ("IMAGE", "Image"),
+            ("FILE", "File"),
+        ],
+        default="TEXT",
+    )
 
-#     def __str__(self):
-#         return f"{self.editor.username} {self.content[:20] if self.content else self.message_type}"
+    def __str__(self):
+        return f"{self.editor.username} {self.content[:20] if self.content else self.message_type}"
 
-#     class Meta:
-#         ordering = ["edited_at"]
+    class Meta:
+        ordering = ["edited_at"]
 
 
 class Notification(models.Model):

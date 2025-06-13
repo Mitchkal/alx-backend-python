@@ -263,6 +263,38 @@ class NotificationSignalTestCase(APITestCase):
         self.assertEqual(notification.message.content, "Hello!")
         self.assertFalse(notification.is_read)
 
+    @patch("chats.middleware.datetime")
+    def test_message_history_api(self, mock_datetime):
+        mock_datetime.now.return_value = datetime(
+            2025, 6, 12, 19, 0, 0, tzinfo=timezone.utc
+        )
+        self.client.credentials(HTTP_AUTHORIZATION=f"Bearer {self.token1}")
+        # Create and edit a message
+        data = {
+            "conversation_id": str(self.conversation.conversation_id),
+            "receiver_id": str(self.user2.id),
+            "content": "Original message",
+            "message_type": "TEXT",
+        }
+        response = self.client.post(reverse("message-list"), data, format="json")
+        self.assertEqual(response.status_code, 201)
+        message_id = response.data["message_id"]
+        update_data = {"content": "Edited message"}
+        self.client.patch(
+            reverse("message-detail", kwargs={"pk": message_id}),
+            update_data,
+            format="json",
+        )
+
+        # Get history
+        response = self.client.get(
+            reverse("message-history", kwargs={"pk": message_id})
+        )
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(len(response.data), 1)
+        self.assertEqual(response.data[0]["old_content"], "Original message")
+        self.assertEqual(response.data[0]["edited_by"]["username"], "user1")
+
 
 class RolePermissionMiddlewareTestCase(APITestCase):
     def setUp(self):

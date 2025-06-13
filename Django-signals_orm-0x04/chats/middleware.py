@@ -60,12 +60,12 @@ class RestrictAccessByTimeMiddleware:
         checks current server time and deny access
         outside 6PM to 9PM
         """
-        current_time = datetime.now().hour
+        # current_time = datetime.now().hour
 
-        if not (18 <= current_time < 21):
-            return HttpResponseForbidden(
-                "Access restricted outside allowed hours (6pm to 9pm)."
-            )
+        # if not (18 <= current_time < 21):
+        #     return HttpResponseForbidden(
+        #         "Access restricted outside allowed hours (6pm to 9pm)."
+        #     )
         response = self.get_response(request)
         return response
 

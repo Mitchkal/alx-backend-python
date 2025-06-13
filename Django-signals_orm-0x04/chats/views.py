@@ -8,18 +8,24 @@ from .filters import ConversationFilter, MessageFilter, UserFilter
 from rest_framework import viewsets, status
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
-from rest_framework.decorators import action
+from rest_framework.decorators import action, api_view, permission_classes
 from django.http import HttpResponse
+from django.utils.decorators import method_decorator
+from django.views.decorators.cache import cache_page
 from .models import Conversation, Message, User, Notification
 from .serializers import (
     ConversationSerializer,
     MessageSerializer,
     UserSerializer,
     NotificationSerializer,
+    MessageHistorySerializer,
 )
 from .permissions import IsParticipantOfConversation
 from django.db.models import F, OuterRef, Subquery
 from .pagination import MessagePagination
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -43,11 +49,12 @@ class UserViewSet(viewsets.ModelViewSet):
             if user.is_superuser:
                 return User.objects.all()
 
-            shared_conversations = (
-                self.queryset.filter(conversation__participants=user)
-                .select_related("sender", "conversation")
-                .prefetch_related("read_by")
-            )
+            # shared_conversations = (
+            #     self.queryset.filter(conversations__participants=user)
+            #     # .select_related("sender", "conversations")
+            #     .prefetch_related("conversations")
+            # )
+            shared_conversations = user.conversations.all()
             return User.objects.filter(
                 conversations__in=shared_conversations
             ).distinct()
@@ -128,6 +135,13 @@ class MessageViewSet(viewsets.ModelViewSet):
     filter_backends = [DjangoFilterBackend]
     filterset_class = MessageFilter
 
+    def create(self, request, *args, **kwargs):
+        """
+        create message from request data
+        """
+        logger.nfo(f"MessageViewSet.create request.data: {request.data}")
+        return super().create(request, *args, **kwargs)
+
     def get_queryset(self):
         """
         Filter messages to include only thise where user is participant
@@ -138,7 +152,7 @@ class MessageViewSet(viewsets.ModelViewSet):
             return (
                 self.queryset.filter(conversation__participants=user)
                 .select_related("sender", "conversation")
-                .prefetch_related("read_by")
+                .prefetch_related("read_by", "replies")
             )
         return Message.objects.none()
 
@@ -166,8 +180,74 @@ class MessageViewSet(viewsets.ModelViewSet):
         message = serializer.save(sender=self.request.user)
         message.read_by.add(self.request.user)
         message.conversation.last_message = message
+        message.full_clean()
         message.conversation.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+    def perform_update(self, serializer):
+        try:
+            message = serializer.save()
+            message.full_clean()
+        except Exception as e:
+            print(f"Message update error: {e}")
+            logger.error(f"Message update error: {e}")
+
+    @action(
+        detail=True,
+        methods=["get"],
+        permission_classes=[IsAuthenticated, IsParticipantOfConversation],
+    )
+    def history(self, request, pk=None):
+        message = self.get_object()
+        history = message.history.all()
+        serializer = MessageHistorySerializer(history, many=True)
+        return Response(serializer.data)
+
+    @action(detail=True, methods=["get"])
+    def thread(self, request, pk=None):
+        """
+        Return a message with a full thread of replies
+        """
+        message = self.get_object()
+
+        def get_thread(msg):
+            """
+            returns message thread
+            """
+            return {
+                "id": str(msg.message_id),
+                "content": msg.content,
+                "sender": msg.sender.username,
+                "timestamp": msg.timestamp.isoformat(),
+                "replies": [get_thread(reply) for reply in msg.replies.all()],
+            }
+
+        return Response(get_thread(message))
+
+    @action(detail=False, methods=["get"], permission_classes=[IsAuthenticated])
+    def unread(self, request):
+        """
+        fetches unread messages
+        """
+        unread_messages = Message.objects.unread_for_user(request.user)
+        serializer = self.get_serializer(unread_messages, many=True)
+        return Response(serializer.data)
+
+    @action(detail=True, methods=["post"], permission_classes=[IsAuthenticated])
+    def mark_as_read(self, request, pk=None):
+        """
+        allows marking messages as read
+        """
+        message = self.get_object()
+        message.read_by.add(request.user)
+        return Response({"status": "marked as read"})
+
+    @method_decorator(cache_page(60))
+    def list(self, request, *args, **kwargs):
+        """
+        Lists messages with a 60 seconds cache
+        """
+        return super().list(request, *args, **kwargs)
 
 
 class NotificationViewSet(viewsets.ModelViewSet):
@@ -185,6 +265,16 @@ class NotificationViewSet(viewsets.ModelViewSet):
         notification.is_read = True
         notification.save()
         return Response({"status": "notification marked as read"})
+
+
+@api_view(["DELETE"])
+@permission_classes([IsAuthenticated])
+def delete_user(request):
+    user = request.user
+    user.delete()
+    return Response(
+        {"detail": "User account deleted."}, status=status.HTTP_204_NO_CONTENT
+    )
 
 
 def root_view(request):
