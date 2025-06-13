@@ -2,3 +2,1220 @@
 Forbidden: /api/token/
 2025-06-07 15:03:50.083779 - User: AnonymousUser - Path: /api/token/
 Forbidden: /api/token/
+2025-06-11 17:14:27.230979 - User: AnonymousUser - Path: /
+Forbidden: /
+2025-06-11 17:14:28.196440 - User: AnonymousUser - Path: /
+Forbidden: /
+2025-06-11 17:14:29.896008 - User: AnonymousUser - Path: /favicon.ico
+Forbidden: /favicon.ico
+/home/mitchell/alx-backend-python/Django-signals_orm-0x04/messaging_app/settings.py changed, reloading.
+2025-06-11 17:15:46.399976 - User: AnonymousUser - Path: /
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/utils/deprecation.py", line 122, in __call__
+    response = self.process_response(request, response)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/middleware/clickjacking.py", line 27, in process_response
+    if response.get("X-Frame-Options") is not None:
+AttributeError: 'NoneType' object has no attribute 'get'
+2025-06-11 17:15:47.185712 - User: AnonymousUser - Path: /favicon.ico
+Internal Server Error: /favicon.ico
+Traceback (most recent call last):
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/utils/deprecation.py", line 122, in __call__
+    response = self.process_response(request, response)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/middleware/clickjacking.py", line 27, in process_response
+    if response.get("X-Frame-Options") is not None:
+AttributeError: 'NoneType' object has no attribute 'get'
+/home/mitchell/alx-backend-python/Django-signals_orm-0x04/messaging_app/settings.py changed, reloading.
+/home/mitchell/alx-backend-python/Django-signals_orm-0x04/chats/views.py changed, reloading.
+/home/mitchell/alx-backend-python/Django-signals_orm-0x04/messaging_app/urls.py changed, reloading.
+/home/mitchell/alx-backend-python/Django-signals_orm-0x04/messaging_app/urls.py changed, reloading.
+2025-06-12 15:48:10.302713 - User: AnonymousUser - Path: /
+Forbidden: /
+2025-06-12 15:48:11.298486 - User: AnonymousUser - Path: /favicon.ico
+Forbidden: /favicon.ico
+2025-06-12 15:48:17.702841 - User: AnonymousUser - Path: /
+Forbidden: /
+2025-06-12 15:48:18.134577 - User: AnonymousUser - Path: /favicon.ico
+Forbidden: /favicon.ico
+/home/mitchell/alx-backend-python/Django-signals_orm-0x04/chats/middleware.py changed, reloading.
+2025-06-12 15:49:13.566328 - User: AnonymousUser - Path: /
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/utils/deprecation.py", line 122, in __call__
+    response = self.process_response(request, response)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/middleware/clickjacking.py", line 27, in process_response
+    if response.get("X-Frame-Options") is not None:
+AttributeError: 'NoneType' object has no attribute 'get'
+2025-06-12 15:49:14.241108 - User: AnonymousUser - Path: /favicon.ico
+Internal Server Error: /favicon.ico
+Traceback (most recent call last):
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/utils/deprecation.py", line 122, in __call__
+    response = self.process_response(request, response)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/middleware/clickjacking.py", line 27, in process_response
+    if response.get("X-Frame-Options") is not None:
+AttributeError: 'NoneType' object has no attribute 'get'
+/home/mitchell/alx-backend-python/Django-signals_orm-0x04/chats/middleware.py changed, reloading.
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/mitchell/alx-backend-python/Django-signals_orm-0x04/chats/middleware.py", line 163, in __call__
+    response = self.get_response(request)
+AttributeError: 'RolepermissionMiddleware' object has no attribute 'get_response'
+2025-06-12 15:53:09.408369 - User: AnonymousUser - Path: /
+Internal Server Error: /favicon.ico
+Traceback (most recent call last):
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/mitchell/alx-backend-python/Django-signals_orm-0x04/chats/middleware.py", line 163, in __call__
+    response = self.get_response(request)
+AttributeError: 'RolepermissionMiddleware' object has no attribute 'get_response'
+2025-06-12 15:53:10.795025 - User: AnonymousUser - Path: /favicon.ico
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/mitchell/alx-backend-python/Django-signals_orm-0x04/chats/middleware.py", line 163, in __call__
+    response = self.get_response(request)
+AttributeError: 'RolepermissionMiddleware' object has no attribute 'get_response'
+2025-06-12 15:53:14.641110 - User: AnonymousUser - Path: /
+Internal Server Error: /favicon.ico
+Traceback (most recent call last):
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/mitchell/alx-backend-python/Django-signals_orm-0x04/chats/middleware.py", line 163, in __call__
+    response = self.get_response(request)
+AttributeError: 'RolepermissionMiddleware' object has no attribute 'get_response'
+2025-06-12 15:53:15.256909 - User: AnonymousUser - Path: /favicon.ico
+/home/mitchell/alx-backend-python/Django-signals_orm-0x04/chats/middleware.py changed, reloading.
+/home/mitchell/alx-backend-python/Django-signals_orm-0x04/chats/middleware.py changed, reloading.
+Internal Server Error: /admin
+Traceback (most recent call last):
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/mitchell/alx-backend-python/Django-signals_orm-0x04/chats/middleware.py", line 163, in __call__
+    response = self.get_response(request)
+AttributeError: 'RolepermissionMiddleware' object has no attribute 'get_response'
+2025-06-12 15:57:39.883948 - User: AnonymousUser - Path: /admin
+Internal Server Error: /admin
+Traceback (most recent call last):
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/mitchell/alx-backend-python/Django-signals_orm-0x04/chats/middleware.py", line 163, in __call__
+    response = self.get_response(request)
+AttributeError: 'RolepermissionMiddleware' object has no attribute 'get_response'
+2025-06-12 15:57:41.088173 - User: AnonymousUser - Path: /admin
+Internal Server Error: /favicon.ico
+Traceback (most recent call last):
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/mitchell/alx-backend-python/Django-signals_orm-0x04/chats/middleware.py", line 163, in __call__
+    response = self.get_response(request)
+AttributeError: 'RolepermissionMiddleware' object has no attribute 'get_response'
+2025-06-12 15:57:41.939847 - User: AnonymousUser - Path: /favicon.ico
+Internal Server Error: /auth
+Traceback (most recent call last):
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/mitchell/alx-backend-python/Django-signals_orm-0x04/chats/middleware.py", line 163, in __call__
+    response = self.get_response(request)
+AttributeError: 'RolepermissionMiddleware' object has no attribute 'get_response'
+2025-06-12 15:57:49.318116 - User: AnonymousUser - Path: /auth
+Internal Server Error: /favicon.ico
+Traceback (most recent call last):
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/mitchell/alx-backend-python/Django-signals_orm-0x04/chats/middleware.py", line 163, in __call__
+    response = self.get_response(request)
+AttributeError: 'RolepermissionMiddleware' object has no attribute 'get_response'
+2025-06-12 15:57:50.041706 - User: AnonymousUser - Path: /favicon.ico
+Internal Server Error: /api/
+Traceback (most recent call last):
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/mitchell/alx-backend-python/Django-signals_orm-0x04/chats/middleware.py", line 163, in __call__
+    response = self.get_response(request)
+AttributeError: 'RolepermissionMiddleware' object has no attribute 'get_response'
+2025-06-12 15:57:54.657157 - User: AnonymousUser - Path: /api/
+Internal Server Error: /favicon.ico
+Traceback (most recent call last):
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/mitchell/alx-backend-python/Django-signals_orm-0x04/chats/middleware.py", line 163, in __call__
+    response = self.get_response(request)
+AttributeError: 'RolepermissionMiddleware' object has no attribute 'get_response'
+2025-06-12 15:57:55.210019 - User: AnonymousUser - Path: /favicon.ico
+/home/mitchell/alx-backend-python/Django-signals_orm-0x04/chats/middleware.py changed, reloading.
+/home/mitchell/alx-backend-python/Django-signals_orm-0x04/chats/middleware.py changed, reloading.
+2025-06-12 16:00:59.119360 - User: AnonymousUser - Path: /api/
+Forbidden: /api/
+2025-06-12 16:00:59.797678 - User: AnonymousUser - Path: /favicon.ico
+Not Found: /favicon.ico
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/mitchell/alx-backend-python/Django-signals_orm-0x04/chats/views.py", line 190, in root_view
+    return HttpResponse("Messaging API is running.")
+NameError: name 'HttpResponse' is not defined
+2025-06-12 16:01:04.919625 - User: AnonymousUser - Path: /
+/home/mitchell/alx-backend-python/Django-signals_orm-0x04/chats/views.py changed, reloading.
+2025-06-12 16:03:05.172470 - User: AnonymousUser - Path: /
+/home/mitchell/alx-backend-python/Django-signals_orm-0x04/messaging_app/urls.py changed, reloading.
+/home/mitchell/alx-backend-python/Django-signals_orm-0x04/chats/views.py changed, reloading.
+2025-06-12 16:04:14.668682 - User: AnonymousUser - Path: /
+Not Found: /
+2025-06-12 16:04:20.739657 - User: AnonymousUser - Path: /
+Not Found: /
+2025-06-12 16:04:22.919792 - User: AnonymousUser - Path: /
+Not Found: /
+2025-06-12 16:04:23.796224 - User: AnonymousUser - Path: /
+Not Found: /
+2025-06-12 16:04:24.533909 - User: AnonymousUser - Path: /
+Not Found: /
+2025-06-12 16:04:34.557915 - User: AnonymousUser - Path: /admin
+2025-06-12 16:04:34.614389 - User: AnonymousUser - Path: /admin/
+2025-06-12 16:04:34.704639 - User: AnonymousUser - Path: /admin/login/
+2025-06-12 16:04:38.625818 - User: numbskull@gmail.com - Path: /admin/login/
+2025-06-12 16:04:38.724289 - User: numbskull@gmail.com - Path: /admin/
+2025-06-12 16:04:46.318342 - User: numbskull@gmail.com - Path: /admin/auth/group/add/
+2025-06-12 16:04:46.493467 - User: numbskull@gmail.com - Path: /admin/jsi18n/
+2025-06-12 16:05:19.706523 - User: numbskull@gmail.com - Path: /admin/
+/home/mitchell/alx-backend-python/Django-signals_orm-0x04/chats/middleware.py changed, reloading.
+2025-06-12 16:06:17.579778 - User: numbskull@gmail.com - Path: /admin/
+Forbidden: /admin/
+/home/mitchell/alx-backend-python/Django-signals_orm-0x04/chats/middleware.py changed, reloading.
+/home/mitchell/alx-backend-python/Django-signals_orm-0x04/chats/middleware.py changed, reloading.
+2025-06-12 16:09:14.882426 - User: numbskull@gmail.com - Path: /admin/
+2025-06-12 16:09:24.165953 - User: numbskull@gmail.com - Path: /admin
+2025-06-12 16:09:24.216531 - User: numbskull@gmail.com - Path: /admin/
+2025-06-12 16:09:25.670201 - User: numbskull@gmail.com - Path: /
+Not Found: /
+2025-06-12 16:09:48.836068 - User: numbskull@gmail.com - Path: /api-auth/
+Not Found: /api-auth/
+2025-06-12 16:10:20.749775 - User: numbskull@gmail.com - Path: /api-auth/ login/ [name='login']
+Not Found: /api-auth/ login/ [name='login']
+2025-06-12 16:10:34.900186 - User: numbskull@gmail.com - Path: /api-auth/ login/ [name='numbskull']
+Not Found: /api-auth/ login/ [name='numbskull']
+2025-06-12 16:10:48.171568 - User: numbskull@gmail.com - Path: /api-auth/ login/ [name='numbskull@gmail.com']
+Not Found: /api-auth/ login/ [name='numbskull@gmail.com']
+2025-06-12 16:11:13.793075 - User: numbskull@gmail.com - Path: /
+Not Found: /
+2025-06-12 16:11:14.650785 - User: numbskull@gmail.com - Path: /
+Not Found: /
+2025-06-07 17:00:00+00:00 - User: numbskull@gmail.com - Path: /api/messages/
+Bad Request: /api/messages/
+2025-06-07 17:00:00+00:00 - User: numbskull@gmail.com - Path: /api/messages/
+Bad Request: /api/messages/
+2025-06-12 16:21:48.272278 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 16:21:48.279717 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 16:21:48.288675 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 16:21:48.298280 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 16:21:48.306896 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 16:21:48.313942 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 16:21:48.326175 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 16:21:48.332853 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 16:21:48.340798 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 16:21:48.351236 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-07 19:00:00+00:00 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-07 16:00:00+00:00 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-07 16:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 16:26:46.805091 - User: numbskull@gmail.com - Path: /
+/home/mitchell/alx-backend-python/Django-signals_orm-0x04/chats/views.py changed, reloading.
+2025-06-07 17:00:00+00:00 - User: numbskull@gmail.com - Path: /api/messages/
+Bad Request: /api/messages/
+2025-06-07 17:00:00+00:00 - User: numbskull@gmail.com - Path: /api/messages/
+Bad Request: /api/messages/
+2025-06-12 16:39:08.939167 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 16:39:08.945076 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 16:39:08.950285 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 16:39:08.955462 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 16:39:08.961099 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 16:39:08.966464 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 16:39:08.971876 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 16:39:08.977013 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 16:39:08.982866 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 16:39:08.988055 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 16:39:09.718478 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 16:39:10.462710 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-07 19:00:00+00:00 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-07 16:00:00+00:00 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-07 16:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 19:00:00+00:00 - User: AnonymousUser - Path: /
+2025-06-07 17:00:00+00:00 - User: numbskull@gmail.com - Path: /api/messages/
+Bad Request: /api/messages/
+2025-06-07 17:00:00+00:00 - User: numbskull@gmail.com - Path: /api/messages/
+Bad Request: /api/messages/
+2025-06-12 16:41:41.000518 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 16:41:41.007144 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 16:41:41.012781 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 16:41:41.018887 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 16:41:41.024821 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 16:41:41.030274 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 16:41:41.037329 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 16:41:41.042480 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 16:41:41.048131 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 16:41:41.053644 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 16:41:42.042010 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 16:41:44.903969 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-07 19:00:00+00:00 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-07 16:00:00+00:00 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-07 16:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 19:00:00+00:00 - User: AnonymousUser - Path: /
+2025-06-07 17:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-07 17:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 16:42:37.229700 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 16:42:37.231450 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 16:42:37.234134 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 16:42:37.235663 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 16:42:37.237511 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 16:42:37.238953 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 16:42:37.240173 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 16:42:37.241696 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 16:42:37.242901 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 16:42:37.244196 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 16:42:38.184697 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 16:42:38.926300 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-07 19:00:00+00:00 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-07 16:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-07 16:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 19:00:00+00:00 - User: AnonymousUser - Path: /
+2025-06-12 19:00:00+00:00 - User: user1@example.com - Path: /api/messages/
+Bad Request: /api/messages/
+2025-06-07 17:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-07 17:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 16:47:42.555340 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 16:47:42.556500 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 16:47:42.557544 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 16:47:42.558562 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 16:47:42.559771 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 16:47:42.561001 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 16:47:42.562111 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 16:47:42.563276 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 16:47:42.564529 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 16:47:42.565594 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 16:47:43.319571 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 16:47:44.052313 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-07 19:00:00+00:00 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-07 16:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-07 16:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 19:00:00+00:00 - User: AnonymousUser - Path: /
+2025-06-12 19:00:00+00:00 - User: user1@example.com - Path: /api/messages/
+Bad Request: /api/messages/
+2025-06-07 17:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-07 17:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 16:51:06.851968 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 16:51:06.853003 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 16:51:06.853953 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 16:51:06.854949 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 16:51:06.856090 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 16:51:06.857280 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 16:51:06.858451 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 16:51:06.859430 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 16:51:06.860397 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 16:51:06.861360 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 16:51:07.731959 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 16:51:08.577516 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-07 19:00:00+00:00 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-07 16:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-07 16:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 19:00:00+00:00 - User: AnonymousUser - Path: /
+2025-06-07 19:00:00+00:00 - User: user@example.com - Path: /api/messages/
+2025-06-07 17:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-07 17:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 17:03:55.120154 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 17:03:55.121289 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 17:03:55.122486 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 17:03:55.123803 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 17:03:55.125148 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 17:03:55.126028 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 17:03:55.127393 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 17:03:55.128645 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 17:03:55.130034 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 17:03:55.131118 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 17:03:55.939902 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 17:03:56.771522 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-07 19:00:00+00:00 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-07 16:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-07 16:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 19:00:00+00:00 - User: AnonymousUser - Path: /api/messages/7f2ec220-947f-424c-8a34-fec1aa210be8/
+Forbidden: /api/messages/7f2ec220-947f-424c-8a34-fec1aa210be8/
+2025-06-12 19:00:00+00:00 - User: AnonymousUser - Path: /api/messages/53eab33e-bdba-404a-b05f-68b3e698c973/
+Forbidden: /api/messages/53eab33e-bdba-404a-b05f-68b3e698c973/
+2025-06-12 19:00:00+00:00 - User: AnonymousUser - Path: /
+2025-06-12 19:00:00+00:00 - User: user1@example.com - Path: /api/messages/
+Bad Request: /api/messages/
+2025-06-07 17:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-07 17:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 17:18:51.874483 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 17:18:51.875526 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 17:18:51.876638 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 17:18:51.877870 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 17:18:51.878870 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 17:18:51.879907 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 17:18:51.880967 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 17:18:51.882054 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 17:18:51.883156 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 17:18:51.884115 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 17:18:52.582744 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 17:18:53.294808 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-07 19:00:00+00:00 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-07 16:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-07 16:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 19:00:00+00:00 - User: AnonymousUser - Path: /api/messages/4e6e6d24-2bb6-431b-81bd-69de7d278eeb/
+Forbidden: /api/messages/4e6e6d24-2bb6-431b-81bd-69de7d278eeb/
+2025-06-12 19:00:00+00:00 - User: AnonymousUser - Path: /api/messages/6af74727-0ae8-4b0e-a746-7a8366768f59/
+Forbidden: /api/messages/6af74727-0ae8-4b0e-a746-7a8366768f59/
+2025-06-12 19:00:00+00:00 - User: AnonymousUser - Path: /
+Internal Server Error: /api/messages/
+Traceback (most recent call last):
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/views.py", line 503, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/views.py", line 421, in initial
+    self.check_permissions(request)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/views.py", line 338, in check_permissions
+    if not permission.has_permission(request, self):
+  File "/home/mitchell/alx-backend-python/Django-signals_orm-0x04/chats/permissions.py", line 25, in has_permission
+    if view.action == "create" and request.data.get("conversation"):
+AttributeError: 'list' object has no attribute 'get'
+2025-06-12 19:00:00+00:00 - User: user1@example.com - Path: /api/messages/
+2025-06-07 17:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-07 17:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 17:30:58.481104 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 17:30:58.482703 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 17:30:58.484194 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 17:30:58.485432 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 17:30:58.486863 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 17:30:58.488299 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 17:30:58.490013 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 17:30:58.494264 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 17:30:58.495862 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 17:30:58.497320 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 17:30:59.436076 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 17:31:00.282385 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-07 19:00:00+00:00 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-07 16:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-07 16:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 19:00:00+00:00 - User: AnonymousUser - Path: /api/messages/a1c189b9-dc89-4720-a76b-f70c1e0bac01/
+Forbidden: /api/messages/a1c189b9-dc89-4720-a76b-f70c1e0bac01/
+2025-06-12 19:00:00+00:00 - User: AnonymousUser - Path: /api/messages/a35c1553-dc18-46ac-8248-10d2bfdfb69e/
+Forbidden: /api/messages/a35c1553-dc18-46ac-8248-10d2bfdfb69e/
+2025-06-12 19:00:00+00:00 - User: AnonymousUser - Path: /
+2025-06-12 19:00:00+00:00 - User: user1@example.com - Path: /api/messages/
+Bad Request: /api/messages/
+2025-06-07 17:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-07 17:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 17:41:54.491241 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 17:41:54.492569 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 17:41:54.493604 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 17:41:54.494602 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 17:41:54.495738 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 17:41:54.497036 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 17:41:54.498114 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 17:41:54.499221 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 17:41:54.500342 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 17:41:54.501426 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 17:41:55.216690 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 17:41:55.937723 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-07 19:00:00+00:00 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-07 16:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-07 16:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 19:00:00+00:00 - User: AnonymousUser - Path: /api/messages/d62cd076-b7b9-4974-8d7d-7376959416a6/
+Forbidden: /api/messages/d62cd076-b7b9-4974-8d7d-7376959416a6/
+2025-06-12 19:00:00+00:00 - User: AnonymousUser - Path: /api/messages/58d5a9b8-3bdd-4b4c-8981-54729d315e45/
+Forbidden: /api/messages/58d5a9b8-3bdd-4b4c-8981-54729d315e45/
+2025-06-12 19:00:00+00:00 - User: AnonymousUser - Path: /
+2025-06-07 17:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-07 17:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 17:56:29.891115 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 17:56:29.892620 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 17:56:31.924719 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 17:56:31.925794 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 17:56:31.927412 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 17:56:31.928762 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 17:56:31.929943 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 17:56:31.931133 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 17:56:31.932364 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 17:56:31.933471 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 17:56:32.655926 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 17:56:33.374154 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-07 19:00:00+00:00 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-07 16:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-07 16:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 19:00:00+00:00 - User: AnonymousUser - Path: /api/messages/f4abf790-7a4a-4bf9-a595-0e2eed1a2ac6/
+Forbidden: /api/messages/f4abf790-7a4a-4bf9-a595-0e2eed1a2ac6/
+2025-06-12 19:00:00+00:00 - User: AnonymousUser - Path: /api/messages/d774af27-e77a-45f2-8b1b-4d93f227c7cd/
+Forbidden: /api/messages/d774af27-e77a-45f2-8b1b-4d93f227c7cd/
+2025-06-12 19:00:00+00:00 - User: AnonymousUser - Path: /
+2025-06-07 17:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-07 17:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 18:07:32.549812 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:07:32.555405 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:07:32.561327 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:07:32.566801 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:07:32.572794 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:07:32.578559 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:07:32.584334 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:07:32.592430 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:07:32.598069 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:07:32.603437 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:07:33.382443 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:07:34.341308 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-07 19:00:00+00:00 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-07 16:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-07 16:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 19:00:00+00:00 - User: AnonymousUser - Path: /api/messages/b8fd3a56-07f6-4f87-98e7-6abc6e21cbc7/
+Forbidden: /api/messages/b8fd3a56-07f6-4f87-98e7-6abc6e21cbc7/
+2025-06-12 19:00:00+00:00 - User: AnonymousUser - Path: /api/messages/d0c3d322-c8e8-4442-a179-76c8730e98d0/
+Forbidden: /api/messages/d0c3d322-c8e8-4442-a179-76c8730e98d0/
+2025-06-12 19:00:00+00:00 - User: AnonymousUser - Path: /
+2025-06-07 17:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-07 17:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 18:09:14.689611 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:09:14.695529 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:09:14.700865 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:09:14.706787 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:09:14.712584 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:09:14.718186 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:09:14.723763 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:09:14.730453 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:09:14.736045 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:09:14.741862 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:09:15.481241 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:09:16.225723 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-07 19:00:00+00:00 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-07 16:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-07 16:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 19:00:00+00:00 - User: AnonymousUser - Path: /api/messages/eeb01efc-1e02-4ba3-ba1e-657ecec8e30f/
+Forbidden: /api/messages/eeb01efc-1e02-4ba3-ba1e-657ecec8e30f/
+2025-06-12 19:00:00+00:00 - User: AnonymousUser - Path: /api/messages/8f76c880-be62-4692-b297-4e108dc69b73/
+Forbidden: /api/messages/8f76c880-be62-4692-b297-4e108dc69b73/
+2025-06-12 19:00:00+00:00 - User: AnonymousUser - Path: /
+2025-06-12 19:00:00+00:00 - User: user1@example.com - Path: /api/messages/
+Bad Request: /api/messages/
+2025-06-07 17:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-07 17:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 18:10:28.383082 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:10:28.388477 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:10:28.394249 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:10:28.399960 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:10:28.405736 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:10:28.411122 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:10:28.416408 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:10:28.421979 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:10:28.427143 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:10:28.432622 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:10:29.201017 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:10:29.950305 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-07 19:00:00+00:00 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-07 16:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-07 16:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 19:00:00+00:00 - User: AnonymousUser - Path: /api/messages/fd6b47b3-de7a-4de6-b067-2533b7d8ebf3/
+Forbidden: /api/messages/fd6b47b3-de7a-4de6-b067-2533b7d8ebf3/
+2025-06-12 19:00:00+00:00 - User: AnonymousUser - Path: /api/messages/4e557561-8b4a-4f9a-97c4-83c0279544ac/
+Forbidden: /api/messages/4e557561-8b4a-4f9a-97c4-83c0279544ac/
+2025-06-12 19:00:00+00:00 - User: AnonymousUser - Path: /
+2025-06-07 17:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-07 17:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 18:10:53.729136 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:10:53.734914 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:10:53.740713 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:10:53.746217 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:10:53.752815 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:10:53.757962 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:10:53.763616 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:10:53.769550 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:10:53.775031 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:10:53.780508 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:10:54.493248 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:10:55.199410 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-07 19:00:00+00:00 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-07 16:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-07 16:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 19:00:00+00:00 - User: AnonymousUser - Path: /api/messages/a215bf70-fa06-41cb-9dd8-1aec35ae389d/
+Forbidden: /api/messages/a215bf70-fa06-41cb-9dd8-1aec35ae389d/
+2025-06-12 19:00:00+00:00 - User: AnonymousUser - Path: /api/messages/a2026403-7d18-4733-b355-b5da2b789287/
+Forbidden: /api/messages/a2026403-7d18-4733-b355-b5da2b789287/
+2025-06-12 19:00:00+00:00 - User: AnonymousUser - Path: /
+2025-06-12 19:00:00+00:00 - User: user1@example.com - Path: /api/messages/
+Bad Request: /api/messages/
+2025-06-07 17:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-07 17:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 18:11:36.642621 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:11:36.648552 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:11:36.654169 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:11:36.660090 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:11:36.667980 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:11:36.674296 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:11:36.681195 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:11:36.687344 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:11:36.692817 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:11:36.699554 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:11:37.576962 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:11:38.471977 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-07 19:00:00+00:00 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-07 16:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-07 16:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 19:00:00+00:00 - User: AnonymousUser - Path: /api/messages/5b073acf-725f-453f-8096-6386c5565dee/
+Forbidden: /api/messages/5b073acf-725f-453f-8096-6386c5565dee/
+2025-06-12 19:00:00+00:00 - User: AnonymousUser - Path: /api/messages/e7ce52d3-1544-415c-972b-1d966c162b21/
+Forbidden: /api/messages/e7ce52d3-1544-415c-972b-1d966c162b21/
+2025-06-12 19:00:00+00:00 - User: AnonymousUser - Path: /
+2025-06-12 19:00:00+00:00 - User: user1@example.com - Path: /api/messages/
+Bad Request: /api/messages/
+2025-06-07 17:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-07 17:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 18:11:59.920260 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:11:59.925377 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:11:59.930485 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:11:59.935512 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:11:59.940176 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:11:59.945332 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:11:59.950309 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:11:59.955522 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:11:59.960672 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:11:59.965786 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:12:00.811132 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:12:01.539285 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-07 19:00:00+00:00 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-07 16:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-07 16:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 19:00:00+00:00 - User: AnonymousUser - Path: /api/messages/f9eb472f-d707-4245-bf01-a8a65e5399ca/
+Forbidden: /api/messages/f9eb472f-d707-4245-bf01-a8a65e5399ca/
+2025-06-12 19:00:00+00:00 - User: AnonymousUser - Path: /api/messages/877ec48d-2e23-4d7e-921b-13726a2fd2e6/
+Forbidden: /api/messages/877ec48d-2e23-4d7e-921b-13726a2fd2e6/
+2025-06-12 19:00:00+00:00 - User: AnonymousUser - Path: /
+2025-06-12 19:00:00+00:00 - User: user1@example.com - Path: /api/messages/
+Bad Request: /api/messages/
+2025-06-07 17:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-07 17:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 18:15:12.875680 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:15:12.881208 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:15:12.886663 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:15:12.891998 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:15:12.897391 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:15:12.902593 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:15:12.907911 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:15:12.912896 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:15:12.918549 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:15:12.923641 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:15:13.814742 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:15:14.533320 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-07 19:00:00+00:00 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-07 16:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-07 16:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 19:00:00+00:00 - User: AnonymousUser - Path: /api/messages/555bba06-09ed-46ca-b069-f3c97b3fc08d/
+Forbidden: /api/messages/555bba06-09ed-46ca-b069-f3c97b3fc08d/
+2025-06-12 19:00:00+00:00 - User: AnonymousUser - Path: /api/messages/76e95961-7b4b-43f0-bb1b-53a5a9134cec/
+Forbidden: /api/messages/76e95961-7b4b-43f0-bb1b-53a5a9134cec/
+2025-06-12 19:00:00+00:00 - User: AnonymousUser - Path: /
+2025-06-12 19:00:00+00:00 - User: user1@example.com - Path: /api/messages/
+Bad Request: /api/messages/
+2025-06-07 17:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-07 17:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 18:20:43.238405 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:20:43.244303 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:20:43.250618 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:20:43.257496 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:20:43.263145 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:20:43.268992 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:20:43.274379 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:20:43.279805 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:20:43.285533 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:20:43.290965 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:20:44.011364 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:20:44.726477 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-07 19:00:00+00:00 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-07 16:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-07 16:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 19:00:00+00:00 - User: AnonymousUser - Path: /api/messages/eee98dad-fd48-4c1b-9a2d-b414c7d036f9/
+Forbidden: /api/messages/eee98dad-fd48-4c1b-9a2d-b414c7d036f9/
+2025-06-12 19:00:00+00:00 - User: AnonymousUser - Path: /api/messages/4cae767d-288a-48e1-9e7e-ce532d330373/
+Forbidden: /api/messages/4cae767d-288a-48e1-9e7e-ce532d330373/
+2025-06-12 19:00:00+00:00 - User: AnonymousUser - Path: /
+2025-06-12 19:00:00+00:00 - User: user1@example.com - Path: /api/messages/
+Bad Request: /api/messages/
+2025-06-07 17:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-07 17:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 18:23:20.306995 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:23:20.313100 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:23:20.318011 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:23:20.323379 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:23:20.329368 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:23:20.334828 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:23:20.340101 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:23:20.347022 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:23:20.353807 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:23:20.361272 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:23:21.067620 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-12 18:23:21.875311 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-07 19:00:00+00:00 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-07 16:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-07 16:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 19:00:00+00:00 - User: AnonymousUser - Path: /api/messages/0dcc9fbe-e34a-49da-bc82-a242c57e3fce/
+Forbidden: /api/messages/0dcc9fbe-e34a-49da-bc82-a242c57e3fce/
+2025-06-12 19:00:00+00:00 - User: AnonymousUser - Path: /api/messages/b819d068-840d-4cf9-a344-444d3628739a/
+Forbidden: /api/messages/b819d068-840d-4cf9-a344-444d3628739a/
+2025-06-12 19:00:00+00:00 - User: AnonymousUser - Path: /
+2025-06-12 19:00:00+00:00 - User: user1@example.com - Path: /api/messages/
+Bad Request: /api/messages/
+2025-06-07 17:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-07 17:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 07:32:08.828157 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 07:32:08.830149 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 07:32:08.832188 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 07:32:08.833933 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 07:32:08.835608 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 07:32:08.837530 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 07:32:08.839329 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 07:32:08.841356 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 07:32:08.843388 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 07:32:08.845433 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 07:32:09.988584 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 07:32:11.030694 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-07 19:00:00+00:00 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-07 16:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-07 16:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 19:00:00+00:00 - User: AnonymousUser - Path: /api/messages/c7021389-fed3-4180-93ee-3d13f4222503/
+Forbidden: /api/messages/c7021389-fed3-4180-93ee-3d13f4222503/
+2025-06-12 19:00:00+00:00 - User: AnonymousUser - Path: /api/messages/113f0178-7365-4ef4-8476-003bc0f9edca/
+Forbidden: /api/messages/113f0178-7365-4ef4-8476-003bc0f9edca/
+2025-06-12 19:00:00+00:00 - User: AnonymousUser - Path: /
+2025-06-12 19:00:00+00:00 - User: user1@example.com - Path: /api/messages/
+Bad Request: /api/messages/
+2025-06-07 17:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-07 17:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 07:38:45.478251 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 07:38:45.480522 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 07:38:45.482836 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 07:38:45.484622 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 07:38:45.486244 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 07:38:45.487921 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 07:38:45.489320 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 07:38:45.490855 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 07:38:45.492320 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 07:38:45.493798 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 07:38:46.501269 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 07:38:47.487079 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-07 19:00:00+00:00 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-07 16:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-07 16:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 19:00:00+00:00 - User: AnonymousUser - Path: /api/messages/ed72b9a3-af64-4abe-8f9e-a511e16a8da0/
+Forbidden: /api/messages/ed72b9a3-af64-4abe-8f9e-a511e16a8da0/
+2025-06-12 19:00:00+00:00 - User: AnonymousUser - Path: /api/messages/dcb82563-62da-45c6-a51d-3af6f5b2387e/
+Forbidden: /api/messages/dcb82563-62da-45c6-a51d-3af6f5b2387e/
+2025-06-12 19:00:00+00:00 - User: AnonymousUser - Path: /
+2025-06-12 19:00:00+00:00 - User: user1@example.com - Path: /api/messages/
+Bad Request: /api/messages/
+2025-06-07 17:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-07 17:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 07:47:44.094162 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 07:47:44.095394 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 07:47:44.097677 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 07:47:44.099574 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 07:47:44.101500 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 07:47:44.102996 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 07:47:44.104778 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 07:47:44.106452 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 07:47:44.108324 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 07:47:44.109762 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 07:47:45.163881 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 07:47:46.181185 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-07 19:00:00+00:00 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-07 16:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-07 16:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 19:00:00+00:00 - User: AnonymousUser - Path: /api/messages/92e733a0-ef85-403d-bac2-c1a28600f607/
+Forbidden: /api/messages/92e733a0-ef85-403d-bac2-c1a28600f607/
+2025-06-12 19:00:00+00:00 - User: AnonymousUser - Path: /api/messages/9eef8ccd-23f3-42a4-a791-4bffa95fd243/
+Forbidden: /api/messages/9eef8ccd-23f3-42a4-a791-4bffa95fd243/
+2025-06-12 19:00:00+00:00 - User: AnonymousUser - Path: /
+2025-06-12 19:00:00+00:00 - User: user1@example.com - Path: /api/messages/
+Bad Request: /api/messages/
+2025-06-07 17:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-07 17:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 07:51:18.827693 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 07:51:18.829980 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 07:51:18.840660 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 07:51:18.842761 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 07:51:18.844860 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 07:51:18.856020 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 07:51:18.857995 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 07:51:18.859680 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 07:51:18.869984 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 07:51:18.872170 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 07:51:23.139382 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 07:51:26.659435 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-07 19:00:00+00:00 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-07 16:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-07 16:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 19:00:00+00:00 - User: AnonymousUser - Path: /api/messages/898f43f4-8d05-444a-bc85-5a287917458f/
+Forbidden: /api/messages/898f43f4-8d05-444a-bc85-5a287917458f/
+2025-06-12 19:00:00+00:00 - User: AnonymousUser - Path: /api/messages/7f88c6a8-b1fa-41b8-a936-5ddd63efa41b/
+Forbidden: /api/messages/7f88c6a8-b1fa-41b8-a936-5ddd63efa41b/
+2025-06-12 19:00:00+00:00 - User: AnonymousUser - Path: /
+2025-06-12 19:00:00+00:00 - User: user1@example.com - Path: /api/messages/
+Bad Request: /api/messages/
+2025-06-07 17:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-07 17:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 07:57:00.979999 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 07:57:00.981911 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 07:57:00.983933 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 07:57:00.985573 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 07:57:00.986846 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 07:57:00.988327 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 07:57:00.989465 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 07:57:00.990635 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 07:57:00.992044 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 07:57:00.993190 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 07:57:04.228114 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 07:57:05.273925 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-07 19:00:00+00:00 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-07 16:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-07 16:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 19:00:00+00:00 - User: AnonymousUser - Path: /api/messages/57dd353d-3063-4ea1-88ed-1869d31941bd/
+Forbidden: /api/messages/57dd353d-3063-4ea1-88ed-1869d31941bd/
+2025-06-12 19:00:00+00:00 - User: AnonymousUser - Path: /api/messages/ba3c20f4-4368-4604-b822-e22700ef69c1/
+Forbidden: /api/messages/ba3c20f4-4368-4604-b822-e22700ef69c1/
+2025-06-12 19:00:00+00:00 - User: AnonymousUser - Path: /
+Internal Server Error: /api/messages/
+Traceback (most recent call last):
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/rest_framework/mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "/home/mitchell/alx-backend-python/Django-signals_orm-0x04/chats/views.py", line 169, in perform_create
+    message.conversation.save()
+  File "/home/mitchell/alx-backend-python/Django-signals_orm-0x04/chats/models.py", line 80, in save
+    Conversation.objects.filter(participants_in=participant_ids)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/query.py", line 1491, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/query.py", line 1509, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/query.py", line 1516, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1643, in add_q
+    clause, _ = self._add_q(q_object, can_reuse)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1675, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1523, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1330, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "/home/mitchell/venv/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1802, in names_to_path
+    raise FieldError(
+django.core.exceptions.FieldError: Cannot resolve keyword 'participants_in' into field. Choices are: conversation_id, created_at, messages, name, participants
+2025-06-12 19:00:00+00:00 - User: user1@example.com - Path: /api/messages/
+2025-06-07 17:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-07 17:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 08:05:17.816308 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 08:05:17.817868 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 08:05:17.818997 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 08:05:17.820105 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 08:05:17.821369 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 08:05:17.822626 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 08:05:17.823830 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 08:05:17.825096 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 08:05:17.826136 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 08:05:17.827170 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 08:05:18.775990 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 08:05:19.845582 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-07 19:00:00+00:00 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-07 16:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-07 16:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 19:00:00+00:00 - User: AnonymousUser - Path: /api/messages/fa622b39-edc7-436e-bc62-ef062009de7e/
+Forbidden: /api/messages/fa622b39-edc7-436e-bc62-ef062009de7e/
+2025-06-12 19:00:00+00:00 - User: AnonymousUser - Path: /api/messages/7d9dc376-fea4-4522-9d45-bbf08e86600c/
+Forbidden: /api/messages/7d9dc376-fea4-4522-9d45-bbf08e86600c/
+2025-06-12 19:00:00+00:00 - User: AnonymousUser - Path: /
+2025-06-12 19:00:00+00:00 - User: user1@example.com - Path: /api/messages/
+2025-06-07 17:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-07 17:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 08:54:39.787155 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 08:54:39.788388 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 08:54:39.790075 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 08:54:39.793212 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 08:54:39.794616 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 08:54:39.796843 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 08:54:39.798258 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 08:54:39.799956 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 08:54:39.801577 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 08:54:39.803224 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 08:54:40.949031 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 08:54:41.979246 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-07 19:00:00+00:00 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-07 16:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-07 16:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 19:00:00+00:00 - User: AnonymousUser - Path: /api/messages/ce3ce772-e0ff-44c9-a41f-73c7e4894470/
+Forbidden: /api/messages/ce3ce772-e0ff-44c9-a41f-73c7e4894470/
+2025-06-12 19:00:00+00:00 - User: AnonymousUser - Path: /api/messages/721ae2ac-a178-4aeb-a011-c9a62d09b1f1/
+Forbidden: /api/messages/721ae2ac-a178-4aeb-a011-c9a62d09b1f1/
+2025-06-12 19:00:00+00:00 - User: AnonymousUser - Path: /
+2025-06-12 19:00:00+00:00 - User: user1@example.com - Path: /api/messages/
+2025-06-07 17:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-07 17:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 09:05:25.096185 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 09:05:25.097395 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 09:05:25.098632 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 09:05:25.100234 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 09:05:25.101434 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 09:05:25.102757 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 09:05:25.104026 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 09:05:25.105193 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 09:05:25.107415 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 09:05:25.109078 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 09:05:26.200657 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-13 09:05:27.381360 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-07 19:00:00+00:00 - User: numbskull@gmail.com - Path: /api/messages/
+2025-06-07 16:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-07 16:00:00+00:00 - User: AnonymousUser - Path: /api/messages/
+Forbidden: /api/messages/
+2025-06-12 19:00:00+00:00 - User: AnonymousUser - Path: /api/messages/0b2c885f-b3a3-4001-90d2-126cb89a99bf/
+Forbidden: /api/messages/0b2c885f-b3a3-4001-90d2-126cb89a99bf/
+2025-06-12 19:00:00+00:00 - User: AnonymousUser - Path: /api/messages/f9849a17-e9a1-4243-8ad8-ab2ed3dc7467/
+Forbidden: /api/messages/f9849a17-e9a1-4243-8ad8-ab2ed3dc7467/
+2025-06-12 19:00:00+00:00 - User: AnonymousUser - Path: /

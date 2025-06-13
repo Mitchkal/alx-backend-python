@@ -77,7 +77,7 @@ class Conversation(models.Model):
                 self.participants.values_list("user_id", flat=True)
             )
             existing = (
-                Conversation.objects.filter(participants_in=participant_ids)
+                Conversation.objects.filter(participants__in=participant_ids)
                 .annotate(num_participants=models.Count("participants"))
                 .filter(num_participants=2)
             )
@@ -113,6 +113,8 @@ class Message(models.Model):
     content = models.TextField()
     # timestamp renamed from sent_at
     timestamp = models.DateTimeField(auto_now_add=True)
+    edited = models.BooleanField(default=False)
+    edited_at = models.DateTimeField(null=True)
     read_by = models.ManyToManyField(User, related_name="read_messages", blank=True)
     message_type = models.CharField(
         max_length=20,
@@ -135,8 +137,67 @@ class Message(models.Model):
         ]
         ordering = ["timestamp"]
 
+    def clean(self):
+        """
+        Validate that the receiver is a participant in the conversation if set
+        """
+        from django.core.exceptions import ValidationError
+
+        if self.receiver and self.conversation:
+            if self.receiver not in self.conversation.participants.all():
+                raise ValidationError(
+                    "Receiver must be a participant in the conversation"
+                )
+
     def __str__(self):
         """
         returns the message timestamp, sender, and content
         """
-        return f"{self.sender.username}: {self.content[:20] if self.content else self.message_type}"
+        return f"{self.sender.username}, {self.edited}: {self.content[:20] if self.content else self.message_type}"
+
+
+# class MessageHistory(models.Model):
+#     """
+#     Models to store the message history
+#     """
+
+#     message = models.ForeignKey(Message, on_delete=models.CASCADE)
+#     editor = models.ForeignKey(User, on_delete=models.CASCADE)
+#     content = models.TextField()
+#     edited_at = models.DateTimeField(auto_now=True)
+#     message_type = models.CharField(
+#         max_length=20,
+#         choices=[
+#             ("TEXT", "Text"),
+#             ("IMAGE", "Image"),
+#             ("FILE", "File"),
+#         ],
+#         default="TEXT",
+#     )
+
+#     def __str__(self):
+#         return f"{self.editor.username} {self.content[:20] if self.content else self.message_type}"
+
+#     class Meta:
+#         ordering = ["edited_at"]
+
+
+class Notification(models.Model):
+    """
+    Model to store notifications
+    """
+
+    # recepient
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="notifications"
+    )
+    # triggering message
+    message = models.ForeignKey(
+        Message, on_delete=models.CASCADE, related_name="notifications"
+    )
+    created_at = models.DateTimeField(auto_now_add=True)
+    is_read = models.BooleanField(default=False)
+    notification_type = models.CharField(max_length=20, default="new_message")
+
+    class Meta:
+        ordering = ["-created_at"]

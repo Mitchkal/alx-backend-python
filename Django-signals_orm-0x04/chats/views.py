@@ -9,8 +9,14 @@ from rest_framework import viewsets, status
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.decorators import action
-from .models import Conversation, Message, User
-from .serializers import ConversationSerializer, MessageSerializer, UserSerializer
+from django.http import HttpResponse
+from .models import Conversation, Message, User, Notification
+from .serializers import (
+    ConversationSerializer,
+    MessageSerializer,
+    UserSerializer,
+    NotificationSerializer,
+)
 from .permissions import IsParticipantOfConversation
 from django.db.models import F, OuterRef, Subquery
 from .pagination import MessagePagination
@@ -162,3 +168,24 @@ class MessageViewSet(viewsets.ModelViewSet):
         message.conversation.last_message = message
         message.conversation.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+
+class NotificationViewSet(viewsets.ModelViewSet):
+    serializer_class = NotificationSerializer
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        return Notification.objects.filter(user=self.request.user).select_related(
+            "user", "message"
+        )
+
+    @action(detail=True, methods=["patch"])
+    def mark_read(self, request, pk=None):
+        notification = self.get_object()
+        notification.is_read = True
+        notification.save()
+        return Response({"status": "notification marked as read"})
+
+
+def root_view(request):
+    return HttpResponse("Welcome to the Messaging App")

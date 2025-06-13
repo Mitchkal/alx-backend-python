@@ -98,7 +98,7 @@ class OffensiveLanguageMiddleware:
 
         # check if request is a POST to /api/messages
         if request.method == "POST" and request.path.startswith("/api/messages"):
-            # Clen up timestamps older than 1 minute
+            # Clean up timestamps older than 1 minute
             current_time = datetime.now()
             message_counts[ip_address] = [
                 timestamp
@@ -123,11 +123,11 @@ class RolepermissionMiddleware:
     midleware to restrict access for roles
     """
 
-    def __init__(self, get_request):
+    def __init__(self, get_response):
         """
         initialization
         """
-        self.get_request = get_request
+        self.get_response = get_response
 
     def __call__(self, request):
         """
@@ -160,5 +160,5 @@ class RolepermissionMiddleware:
                     "Admin or moderator role required for this action."
                 )
 
-            response = self.get_response(request)
-            return response
+        response = self.get_response(request)
+        return response

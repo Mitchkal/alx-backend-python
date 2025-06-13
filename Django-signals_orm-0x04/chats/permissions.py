@@ -4,6 +4,10 @@ custom permisision class for chat app
 """
 from rest_framework import permissions
 from .models import Conversation, Message
+import logging
+
+
+logger = logging.getLogger(__name__)
 
 
 class IsParticipantOfConversation(permissions.BasePermission):
@@ -22,13 +26,26 @@ class IsParticipantOfConversation(permissions.BasePermission):
 
         # When creating a message, check if a user is a participanty in
         #  the specified conversation
-        if view.action == "create" and request.data.get("conversation"):
-            try:
-                conversation_id = request.data.get("conversation")
-                conversation = Conversation.objects.get(conversation_id=conversation_id)
-                return request.user in conversation.participants.all()
-            except Conversation.DoesNotExist:
-                return False
+        if view.action == "create":
+            data = request.data
+            if isinstance(data, list):
+                if not data:
+                    logger.warning("Empty list in request.data for message creation")
+                    return False
+                data = data[0]  # assume single item for now
+            conversation_id = data.get("conversation") or data.get("conversation_id")
+            if conversation_id:
+                try:
+
+                    conversation = Conversation.objects.get(
+                        conversation_id=conversation_id
+                    )
+                    return request.user in conversation.participants.all()
+                except Conversation.DoesNotExist:
+                    logger.error(f"Conversation { conversation_id} not found")
+                    return False
+            logger.warning("No conversation_id in request.data")
+            return False
         # for other actions, rely on object-level permissions
         # or allow authenticated users
         return True

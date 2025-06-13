@@ -7,7 +7,11 @@ JSON into model nstances when creating or udating data
 """
 import re
 from rest_framework import serializers
-from .models import User, Message, Conversation
+from .models import User, Message, Conversation, Notification
+import logging
+
+
+logger = logging.getLogger(__name__)
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -81,7 +85,8 @@ class MessageSerializer(serializers.ModelSerializer):
     # facilitates nested relationship where message shows sender info
     # and not just a sender id
     sender = LightUserSerializer(read_only=True)
-    receiver = LightUserSerializer(read_only=True)
+    receiver = LightUserSerializer(read_only=True, allow_null=True)
+    # conversation = ConversationSerializer(read_only=True)
 
     # to accept sender id in a post
     sender_id = serializers.PrimaryKeyRelatedField(
@@ -89,14 +94,16 @@ class MessageSerializer(serializers.ModelSerializer):
     )
 
     # Accept receiver id in a post
-    receiver_id = serializers.PrimaryKeyRelatedField(
-        queryset=User.objects.all(), write_only=True, source="receiver"
-    )
+    # receiver_id = serializers.PrimaryKeyRelatedField(
+    #     queryset=User.objects.all(), write_only=True, source="receiver", allow_null=True
+    # )
+    receiver_id = serializers.CharField(write_only=True, allow_null=True)
 
     # Accept convesation id in a post
-    conversation_id = serializers.PrimaryKeyRelatedField(
-        queryset=Conversation.objects.all(), write_only=True, source="conversation"
-    )
+    # conversation_id = serializers.PrimaryKeyRelatedField(
+    #     queryset=Conversation.objects.all(), write_only=True, source="conversation"
+    # )
+    conversation_id = serializers.CharField(write_only=True)
     # read by attribute for messages in a conversation
     read_by = LightUserSerializer(many=True, read_only=True)
 
@@ -113,8 +120,9 @@ class MessageSerializer(serializers.ModelSerializer):
             "receiver",  # nested read
             "receiver_id",  # write only
             "conversation_id",  # write only
-            "message_body",
-            "sent_at",
+            "content",
+            "timestamp",
+            "edited",
             "message_type",
             "attachment",
             "read_by",
@@ -134,15 +142,71 @@ class MessageSerializer(serializers.ModelSerializer):
 
     def validate(self, data):
         """
-        validate message type and attachment
+        validate message type and attachment and ensure receiver is participant in conversation
         """
+        if isinstance(self.initial_data, list):
+            raise serializers.ValidationError(
+                {
+                    "non_field_errors": "Invalid data. Expected a dictionary, but got list."
+                }
+            )
+        conversation = data.get("conversation", {}).get("conversation_id")
+        receiver = data.get("receiver")
         message_type = data.get("message_type", "TEXT")
         attachment = data.get("attachment")
+
+        if (
+            receiver
+            and conversation
+            and receiver not in conversation.participants.all()
+        ):
+            raise serializers.ValidationError(
+                "Receiver must be a participant in a conversation."
+            )
+
         if message_type != "TEXT" and not attachment:
             raise serializers.ValidationError(
                 f"Attachment required for {message_type} message"
             )
         return data
+
+    # def validate(self, data):
+    #     # if isinstance(self.initial_data, list):
+    #     #     raise serializers.ValidationError(
+    #     #         {
+    #     #             "non_field_errors": "Invalid data. Expected a dictionary, but got list."
+    #     #         }
+    #     #     )
+    #     conversation_id = data.get("conversation", {}).get("conversation_id")
+    #     receiver = data.get("receiver")
+    #     try:
+    #         if conversation_id:
+    #             conversation = Conversation.objects.get(conversation_id=conversation_id)
+    #             if receiver and receiver not in conversation.participants.all():
+    #                 raise serializers.ValidationError(
+    #                     {
+    #                         "receiver_id": "Receiver must be a participant in the conversation."
+    #                     }
+    #                 )
+    #             if self.context["request"].user not in conversation.participants.all():
+    #                 raise serializers.ValidationError(
+    #                     {
+    #                         "conversation_id": "You are not a participant in this conversation."
+    #                     }
+    #                 )
+    #         else:
+    #             raise serializers.ValidationError(
+    #                 {"conversation_id": "This field is required."}
+    #             )
+    #     except Conversation.DoesNotExist:
+    #         raise serializers.ValidationError(
+    #             {"conversation_id": "Conversation does not exist."}
+    #         )
+    #     except Exception as e:
+    #         logger.error(f"MessageSerializer validation error: {e}")
+    #         print(f"message serializer validation error: {e}")
+    #         raise
+    #     return data
 
 
 class ConversationSerializer(serializers.ModelSerializer):
@@ -199,3 +263,17 @@ class ConversationSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError(
                 f"Failed to create conversation: {str(e)}"
             )
+
+
+class NotificationSerializer(serializers.ModelSerializer):
+    """
+    serializer for Notifications model
+    """
+
+    user = UserSerializer(read_only=True)
+    message = MessageSerializer(read_only=True)
+
+    class Meta:
+        model = Notification
+        fields = ["id", "user", "message", "created_at", "is_read", "notification_type"]
+        read_only_fields = ["created_at", "user", "message", "notification_type"]
