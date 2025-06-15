@@ -233,6 +233,7 @@ class MessageViewSet(viewsets.ModelViewSet):
         fetches unread messages
         """
         # modified to include unread.unread_for_user
+        unread_s = Message.unread.unread_for_user(request.user)
         unread_messages = Message.objects.unread.unread_for_user(request.user)
         serializer = self.get_serializer(unread_messages, many=True).filter(receiver=user).only("message_id", "content", "timestamp", "sender", "conversation")
         return Response(serializer.data)
