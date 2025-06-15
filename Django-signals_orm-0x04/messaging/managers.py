@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class UnreadMessageManager(models.Manager):
+class UnreadMessagesManager(models.Manager):
     """
     Manager model for unread messagea
     """
