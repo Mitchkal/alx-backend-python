@@ -133,7 +133,7 @@ class Message(models.Model):
     receiver = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="receiver", blank=True, null=True
     )
-    parental_message = models.ForeignKey(
+    parent_message = models.ForeignKey(
         "self", null=True, blank=True, on_delete=models.CASCADE, related_name="replies"
     )
     objects = MessageManager()
