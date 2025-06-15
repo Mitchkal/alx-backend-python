@@ -177,7 +177,10 @@ class MessageViewSet(viewsets.ModelViewSet):
                 message.read_by.add(self.request.user)
 
         """
-        message = serializer.save(sender=self.request.user)
+        # Broke this down  receiver
+        request = self.request
+        message = serializer.save(sender=request.user)
+
         message.read_by.add(self.request.user)
         message.conversation.last_message = message
         message.full_clean()
