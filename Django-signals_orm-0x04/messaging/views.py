@@ -232,8 +232,9 @@ class MessageViewSet(viewsets.ModelViewSet):
         """
         fetches unread messages
         """
-        unread_messages = Message.objects.unread_for_user(request.user)
-        serializer = self.get_serializer(unread_messages, many=True)
+        # modified to include unread.unread_for_user
+        unread_messages = Message.objects.unread.unread_for_user(request.user)
+        serializer = self.get_serializer(unread_messages, many=True).filter(receiver=user).only("message_id", "content", "timestamp", "sender", "conversation")
         return Response(serializer.data)
 
     @action(detail=True, methods=["post"], permission_classes=[IsAuthenticated])
@@ -243,6 +244,7 @@ class MessageViewSet(viewsets.ModelViewSet):
         """
         message = self.get_object()
         message.read_by.add(request.user)
+        message.unread = False
         return Response({"status": "marked as read"})
 
     @method_decorator(cache_page(60))

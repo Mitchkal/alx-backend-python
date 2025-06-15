@@ -117,6 +117,7 @@ class Message(models.Model):
     # timestamp renamed from sent_at
     timestamp = models.DateTimeField(auto_now_add=True)
     edited = models.BooleanField(default=False)
+    unread = models.BooleanField(default=True)
     edited_at = models.DateTimeField(null=True)
     read_by = models.ManyToManyField(User, related_name="read_messages", blank=True)
     message_type = models.CharField(
