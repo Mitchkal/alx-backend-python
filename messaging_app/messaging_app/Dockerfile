@@ -15,4 +15,5 @@ COPY . .
 EXPOSE 8000
 
 # Start django server when box runs
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+# CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+CMD ["sh", "-c", "echo '-p 8000'; python manage.py runserver 0.0.0.0:8000"]
