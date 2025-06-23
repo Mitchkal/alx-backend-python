@@ -1,0 +1,5 @@
+curl \
+  -X POST \
+  -H "Content-Type: application/json" \
+  -d '{"username": "12345678", "email": "numbskull@gmail.com", "password": "12345678"}' \
+  http://localhost:5000/api/token/

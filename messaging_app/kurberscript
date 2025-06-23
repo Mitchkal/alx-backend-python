@@ -1,0 +1,12 @@
+#!/bin/bash
+# start kubernetes cluster
+minikube start
+
+# create kubectl alias
+alias kubectl="minikube kubectl --"
+
+# verify kuberenetes cluster is running
+kubectl cluster-info
+
+# retrieve available pods
+kubectl get pods
