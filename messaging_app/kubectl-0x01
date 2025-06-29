@@ -1,0 +1,79 @@
+#!/bin/bash
+# Scales a kubernet deployment of a django app, verifies pods loads test with wrk and monitors resources
+
+# Configure
+
+DEPLOYMENT_NAME="messaging-app"
+NAMESPACE="default"
+REPLICAS=3
+SERVICE_NAME="messaging-app-service"
+WRK_DURATION="10s" # Duration for wrk load test
+WRK_THREADS=10
+WRK_CONNECTIONS=100
+
+# Scale deployment to 3 replicas
+echo "Scaling $DEPLOYMENT_NAME to $REPLICAS replicas..."
+kubectl scale deployment "$DEPLOYMENT_NAME" --replicas=$REPLICAS -n $NAMESAPACE
+if [ $? -eq 0 ]; then
+    echo "Deployment scaled successsfully."
+else
+    echo "Error: Failed to scale deployment."
+    exit 1
+fi
+
+# Wait for pods to be ready
+echo "Waiting for pods to be ready..."
+kubectl wait --for=condition=Ready pod -l app=$DEPLOYMENT_NAME -n $NAMESPACE --timeout=120s
+if [ $? -ne 0]; then
+    echo "Error: Pods did not ready in time."
+    exit 1
+fi 
+echo  "Verfying pods are running..."
+kubectl get pods -n $NAMESAPACE -l app=$DEPLOYMENT_NAME -o wide
+POD_COUNT=$(kubectl get pods -n $NAMESPACE -l app=$DEPLOYMENT_NAME --field-selector=status.phase=Running | grep -v NAME | wc -l)
+if [ $POD_COUNT -eq $REPLICAS ]; then
+    echo "Sucess: $POD_COUNT pods are running."
+else
+    echo "Error: Expectes $REPLICAS pods, but found $POD_COUNT running."
+    exit 1
+fi 
+echo "Retreieving service URL for load test.."
+if [[ "$(kubectl get svc $SERVICE_NAME -n $NAMESPACE -o jsonpath='{.spec.type}')" == "LoadBalancer" ]]; then
+    SERVICE_URL=$(kubectl get svc $SERVICE_NAME -n $NAMESPACE -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
+    if [ -z "$SERVICE_URL" ]; then
+        echo "Error: LoadBalancer IP not available. Ensure the service is ready."
+        exit 1
+    fi
+    SERVICE_PORT=$(kubectl get svc $SERVICE_NAME -n $NAMESPACE -o jsonpath='{.spec.ports[0].port}')
+    TARGET_URL="http://$SERVICE_URL:$SERVICE_PORT"
+elif [[ "$(kubectl get svc $SERVICE_NAME -n $NAMESPACE -o jsonpath='{.spec.type}')" == "NodePort" ]]; then
+    NODE_IP=$(kubectl get nodes -o jsonpath='{.items[0].status.addresses[?(@.type=="InternalIP")].address}')
+    NODE_PORT=$(kubectl get svc $SERVICE_NAME -n $NAMESPACE -o jsonpath='{.spec.ports[0].nodePort}')
+    TARGET_URL="http://$NODE_IP:$NODE_PORT"
+else
+    echo "Error: Service type must be LoadBalancer or NodePort for load testing."
+    exit 1
+fi
+echo "Service URL: $TARGET_URL"
+
+# Step 4: Perform load testing with wrk
+echo "Running load test with wrk..."
+wrk -t$WRK_THREADS -c$WRK_CONNECTIONS -d$WRK_DURATION $TARGET_URL
+if [ $? -eq 0 ]; then
+    echo "Load test completed successfully."
+else
+    echo "Error: Load test failed."
+    exit 1
+fi
+
+# Step 5: Monitor resource usage with kubectl top
+echo "Monitoring resource usage..."
+kubectl top pods -n $NAMESPACE -l app=$DEPLOYMENT_NAME
+if [ $? -eq 0 ]; then
+    echo "Resource usage retrieved successfully."
+else
+    echo "Error: Failed to retrieve resource usage. Ensure Metrics Server is installed."
+    exit 1
+fi
+
+echo "Script execution completed."
