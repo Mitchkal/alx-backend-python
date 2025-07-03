@@ -1,0 +1,56 @@
+pipeline {
+    agent any
+
+    environment {
+        GITHUB_CREDENTIALS = credentials('github_creds')
+        VENV_DIR = 'venv'
+        APP_DIR = 'messaging_app'
+    }
+
+    stages {
+        stage('Checkout Code') {
+            steps {
+                git urls: 'https://github.com/Mitchkal/alx-backend-python.git',
+                credentialsId: "{GITHUB_CREDENTIALS}",
+                BRANCH: 'main'
+                
+            }
+        }
+        stage('Set up Python environment') {
+            steps {
+                dir {"${APP_DIR}"} {
+                     sh '''
+                        python3 -m venv ${VENV_DIR}
+                        . ${VENV_DIR}/bin/activate
+                        pip install --upgared pip
+                        pip install -r requirements.txt
+                    '''
+                }
+               
+            }
+        }
+        stage ('Run Tests') {
+            steps {
+                dir {"${APP_DIR}"} {
+                    sh '''
+                        .${VENV_DIR}/bin/activate
+                        pytest --junitxml=test-report.xml
+                    '''     
+                }
+
+            }
+        }
+        stage('Publish test report') {
+            steps {
+                junit "${APP_DIR}/report.xml"
+            }
+        }
+    }
+    post {
+        always {
+            cleanWs()
+        }
+    }
+
+
+}
