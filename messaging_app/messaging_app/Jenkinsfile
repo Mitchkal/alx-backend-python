@@ -1,8 +1,8 @@
 pipeline {
     agent any
-    tools {
-       PythonInstallation 'Python 3.10'
-    }
+    // tools {
+    //    PythonInstallation 'Python 3.10'
+    // }
 
     environment {
         GITHUB_CREDENTIALS = credentials('github_creds')
@@ -23,28 +23,33 @@ pipeline {
                 sh 'git branch'
             }
         }
-        stage('Set up Python environment') {
-            steps {
-                dir ("${APP_DIR}") {
-                    sh '''
-                        python3 -m venv ${VENV_DIR}
-                        . ${VENV_DIR}/bin/activate
-                        pip install --upgrade pip
-                        pip install -r requirements.txt
-                    '''
+        // stage('Set up Python environment') {
+        //     steps {
+        //         dir ("${APP_DIR}") {
+        //             sh '''
+        //                 python3 -m venv ${VENV_DIR}
+        //                 . ${VENV_DIR}/bin/activate
+        //                 pip install --upgrade pip
+        //                 pip install -r requirements.txt
+        //             '''
 
-                }
+        //         }
                
-            }
-        }
-        stage ('Run Tests in virtualenv') {
+        //     }
+        // }
+        stage ('Build and Run Tests in virtualenv') {
             steps {
                
                 dir ("${APP_DIR}") {
-                    sh '''
-                        . ${VENV_DIR}/bin/activate
-                        pytest --junitxml=test-report.xml
-                    '''  
+                    script{
+                        withPythonEnv('Python-3.10') {
+                        sh 'pip install -r requirements.txt'
+                        sh 'pytest --junitxml=test-report.xml'
+                    }
+
+                    }
+
+       
                 }
 
             }
