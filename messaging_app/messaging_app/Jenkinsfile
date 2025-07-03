@@ -10,20 +10,20 @@ pipeline {
     stages {
         stage('Checkout Code') {
             steps {
-                git urls: 'https://github.com/Mitchkal/alx-backend-python.git',
-                credentialsId: "{GITHUB_CREDENTIALS}",
-                BRANCH: 'main'
+                git url: 'https://github.com/Mitchkal/alx-backend-python.git',
+                credentialsId: "${GITHUB_CREDENTIALS}",
+                branch: 'main'
                 
             }
         }
         stage('Set up Python environment') {
             steps {
                 dir {"${APP_DIR}"} {
-                     sh '''
+                     sh ''' 
                         python3 -m venv ${VENV_DIR}
                         . ${VENV_DIR}/bin/activate
-                        pip install --upgared pip
-                        pip install -r requirements.txt
+                        pip3 install --upgrade pip
+                        pip3 install -r messaging_app/requirements.txt
                     '''
                 }
                
@@ -34,6 +34,7 @@ pipeline {
                 dir {"${APP_DIR}"} {
                     sh '''
                         .${VENV_DIR}/bin/activate
+                        cd messaging_app
                         pytest --junitxml=test-report.xml
                     '''     
                 }
