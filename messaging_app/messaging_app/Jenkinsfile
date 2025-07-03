@@ -1,9 +1,5 @@
 pipeline {
-    agent {
-        docker {
-            image 'python:3.10-slim'
-        }
-    }
+    agent any
 
     environment {
         GITHUB_CREDENTIALS = credentials('github_creds')
@@ -37,13 +33,16 @@ pipeline {
                
             }
         }
-        stage ('Run Tests') {
+        stage ('Run Tests in virtualenv') {
             steps {
-                dir ("${APP_DIR}") {
+                withPythonEnv('Python 3') {
+                    dir ("${APP_DIR}") {
                     sh '''
-                        . ${VENV_DIR}/bin/activate && pytest --junitxml=test-report.xml
+                        pip install --upgrade pip && pip install -r requirements.txt && pytest --junitxml=test-report.xml
                     '''     
                 }
+                }
+                
 
             }
         }
