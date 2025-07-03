@@ -3,6 +3,9 @@ pipeline {
 
     environment {
         GITHUB_CREDENTIALS = credentials('github_creds')
+        DOCKER_CREDENTIALS = credentials('docker_credentials')
+        DOCKER_IMAGE = 'mitchkal/messaging_app'
+        DOCKER_TAG = 'latest'
         VENV_DIR = 'venv'
         APP_DIR = 'messaging_app'
     }
@@ -13,14 +16,13 @@ pipeline {
                 git url: 'https://github.com/Mitchkal/alx-backend-python.git',
                 credentialsId: "${GITHUB_CREDENTIALS}",
                 branch: 'main'
-
-                // satify git branch string check
+                // satisfy git branch string check
                 sh 'git branch'
             }
         }
         stage('Set up Python environment') {
             steps {
-                dir {"${APP_DIR}"} {
+                dir ("${APP_DIR}") {
                      sh ''' 
                         python3 -m venv ${VENV_DIR}
                         . ${VENV_DIR}/bin/activate
@@ -33,10 +35,9 @@ pipeline {
         }
         stage ('Run Tests') {
             steps {
-                dir {"${APP_DIR}"} {
+                dir ("${APP_DIR}") {
                     sh '''
                         .${VENV_DIR}/bin/activate
-                        cd messaging_app
                         pytest --junitxml=test-report.xml
                     '''     
                 }
@@ -45,7 +46,28 @@ pipeline {
         }
         stage('Publish test report') {
             steps {
-                junit "${APP_DIR}/report.xml"
+                junit "${APP_DIR}/test-report.xml"
+            }
+        }
+        stage('Build docker image'){
+            steps {
+                dir ("${APP_DIR}") {
+                    sh '''
+                        docker build -t ${DOCKER_IMAGE}:${DOCKER_TAG} .
+                    '''
+                }
+                }
+            }
+        }
+        stage('Push Docker Image') {
+            steps {
+                withCredentials([usernamePassword(credentialsId: "${DOCKER_CREDENTIALS}", usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
+                    sh '''
+                        echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
+                        docker push ${DOCKER_IMAGE}:${DOCKER_TAG}
+                        docker logout
+                    '''
+                }
             }
         }
     }
