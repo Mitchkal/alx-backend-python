@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         GITHUB_CREDENTIALS = credentials('github_creds')
-        DOCKER_CREDENTIALS = credentials('docker_credentials')
+        // DOCKER_CREDENTIALS = credentials('docker_credentials')
         DOCKER_IMAGE = 'mitchkal/messaging_app'
         DOCKER_TAG = 'latest'
         VENV_DIR = 'venv'
@@ -14,7 +14,7 @@ pipeline {
         stage('Checkout Code') {
             steps {
                 git url: 'https://github.com/Mitchkal/alx-backend-python.git',
-                credentialsId: "${GITHUB_CREDENTIALS}",
+                credentialsId: "docker_credentials",
                 branch: 'main'
                 // satisfy git branch string check
                 sh 'git branch'
@@ -24,9 +24,9 @@ pipeline {
             steps {
                 dir ("${APP_DIR}") {
                      sh ''' 
-                        python3 -m venv ${VENV_DIR}
-                        . ${VENV_DIR}/bin/activate
-                        pip3 install --upgrade pip
+                        python3 -m venv ${VENV_DIR} && \
+                        . ${VENV_DIR}/bin/activate && \
+                        pip3 install --upgrade pip && \
                         pip3 install -r messaging_app/requirements.txt
                     '''
                 }
@@ -37,8 +37,7 @@ pipeline {
             steps {
                 dir ("${APP_DIR}") {
                     sh '''
-                        .${VENV_DIR}/bin/activate
-                        pytest --junitxml=test-report.xml
+                        . ${VENV_DIR}/bin/activate && pytest --junitxml=test-report.xml
                     '''     
                 }
 
@@ -78,4 +77,4 @@ pipeline {
     }
 
 
-}
+
