@@ -1,7 +1,7 @@
 pipeline {
     agent any
     tools {
-       jenkins.plugins.shiningpanda.tools.PythonInstallation: 'Python 3.10'
+       PythonInstallation 'Python 3.10'
     }
 
     environment {
