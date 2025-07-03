@@ -7,7 +7,7 @@ pipeline {
 
     environment {
         GITHUB_CREDENTIALS = credentials('github_creds')
-        // DOCKER_CREDENTIALS = credentials('docker_credentials')
+        DOCKER_CREDENTIALS = credentials('docker_credentials')
         DOCKER_IMAGE = 'mitchkal/messaging_app'
         DOCKER_TAG = 'latest'
         VENV_DIR = 'venv'
@@ -18,7 +18,7 @@ pipeline {
         stage('Checkout Code') {
             steps {
                 git url: 'https://github.com/Mitchkal/alx-backend-python.git',
-                credentialsId: "docker_credentials",
+                credentialsId: "${GITHUB_CREDENTIALS}",
                 branch: 'main'
                 // satisfy git branch string check
                 sh 'git branch'
