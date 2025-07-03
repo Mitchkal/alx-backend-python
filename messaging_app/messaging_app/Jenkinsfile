@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    tools {
+        python 'Python-3.10'
+    }
 
     environment {
         GITHUB_CREDENTIALS = credentials('github_creds')
@@ -23,16 +26,13 @@ pipeline {
         stage('Set up Python environment') {
             steps {
                 dir ("${APP_DIR}") {
-                    pythonBuilder(
-                        pythonName: 'Python-3.10',
-                        nature: 'shell',
-                        command: '''
-                            python3 -m venv ${VENV_DIR}
-                            . ${VENV_DIR}/bin/activate
-                            pip3 install --upgrade pip
-                            pip3 install -r requirements.txt
-                        '''
-                    )
+                    sh '''
+                        python3 -m venv ${VENV_DIR}
+                        . ${VENV_DIR}/bin/activate
+                        pip install --upgrade pip
+                        pip install -r requirements.txt
+                    '''
+
                 }
                
             }
@@ -41,14 +41,10 @@ pipeline {
             steps {
                
                 dir ("${APP_DIR}") {
-                    pythonBuilder(
-                        pythonName: 'Python-3.10',
-                        nature: 'shell',
-                        command: '''
-                            . ${VENV_DIR}/bin/activate
-                            pytest --junitxml=test_report.xml
-                        '''
-                    )    
+                    sh '''
+                        . ${VENV_DIR}/bin/activate
+                        pytest --junitxml=test-report.xml
+                    '''  
                 }
 
             }
