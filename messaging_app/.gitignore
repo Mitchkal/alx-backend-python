@@ -1,2 +1,4 @@
 .env
 creaekubernetesapp-secrets
+username.txt
+password.txt
